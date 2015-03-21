@@ -17,6 +17,7 @@
 #include "addfriendform.h"
 
 #include <QFont>
+#include <QCoreApplication>
 #include <QMessageBox>
 #include <QErrorMessage>
 #include <tox/tox.h>
@@ -26,6 +27,7 @@
 #include "src/misc/cdata.h"
 #include "src/toxdns.h"
 #include "src/misc/settings.h"
+#include "src/widget/widget.h"
 
 AddFriendForm::AddFriendForm()
 {
@@ -121,4 +123,81 @@ Ignore the proxy and connect to the Internet directly?"), QMessageBox::Yes|QMess
         this->toxId.clear();
         this->message.clear();
     }
+}
+
+
+
+// THE following files should be added to a WallForm.cpp TODO
+
+WallForm::WallForm()
+{
+    main = new QWidget(), head = new QWidget();
+    wall = new QListWidget;
+    QFont bold;
+    bold.setBold(true);
+    headLabel.setText(tr("Wall"));
+    headLabel.setFont(bold);
+
+    wallLabel.setText(tr("Your Wall"));
+    messageLabel.setText(tr("Message","The message you want to Post"));
+    sendButton.setText(tr("Post"));
+
+    main->setLayout(&layout);
+    layout.addWidget(&wallLabel);
+    layout.addWidget(wall);
+    layout.addWidget(&messageLabel);
+    layout.addWidget(&message);
+    layout.addWidget(&sendButton);
+
+    head->setLayout(&headLayout);
+    headLayout.addWidget(&headLabel);
+
+    connect(&sendButton, SIGNAL(clicked()), this, SLOT(onPostTriggered()));
+    //connect(Nexus::getCore(), &Core::usernameSet, this, &AddFriendForm::onUsernameSet);
+
+}
+
+WallForm::~WallForm()
+{
+    head->deleteLater();
+    main->deleteLater();
+    delete wall;
+}
+
+void WallForm::show(Ui::MainWindow &ui)
+{
+    ui.mainContent->layout()->addWidget(main);
+    ui.mainHead->layout()->addWidget(head);
+    main->show();
+    head->show();
+}
+
+void WallForm::onPostTriggered()
+{
+    QString msg = getMessage();
+
+    // Post the message on the wall, UI stuff
+    QListWidgetItem item;
+    QColor offline(0,0,255);
+    item.setText(msg);
+    item.setTextColor(offline);
+    wall->addItem(&item);
+
+    qApp->processEvents();
+
+    // Send the messages to your friends
+
+    //traverse the friends list
+
+        // Check if Online .. if online send the message
+
+        // if not, then send the messages to the trusted nodes of the friend
+
+
+}
+
+QString WallForm::getMessage() const
+{
+    const QString msg = message.toPlainText();
+    return !msg.isEmpty() ? msg : message.placeholderText();
 }

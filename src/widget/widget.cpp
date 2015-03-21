@@ -174,7 +174,10 @@ void Widget::init()
     reloadTheme();
     
     filesForm = new FilesForm();
+
     addFriendForm = new AddFriendForm;
+    wallForm = new WallForm;
+
     settingsWidget = new SettingsWidget();
 
     Core* core = Nexus::getCore();
@@ -195,7 +198,8 @@ void Widget::init()
     connect(timer, &QTimer::timeout, this, &Widget::onTryCreateTrayIcon);
     connect(offlineMsgTimer, &QTimer::timeout, this, &Widget::processOfflineMsgs);
 
-    addFriendForm->show(*ui);
+    //addFriendForm->show(*ui);
+    wallForm->show(*ui);
 
 #if (AUTOUPDATE_ENABLED)
     if (Settings::getInstance().getCheckUpdates())
@@ -249,6 +253,7 @@ Widget::~Widget()
     hideMainForms();
     delete settingsWidget;
     delete addFriendForm;
+    delete wallForm;
     delete filesForm;
     delete timer;
     delete offlineMsgTimer;
@@ -1220,4 +1225,20 @@ void Widget::nextContact()
 void Widget::previousContact()
 {
     qDebug() << "previous contact";
+}
+
+void Widget::on_wallButton_clicked()
+{
+    // If already showing the Wall UI then return.
+
+    // start and setup the UI
+    hideMainForms();
+    wallForm->show(*ui);
+    setWindowTitle(tr("Wall"));
+
+    // Show the current wall .. make a new function for refreshing posts
+
+
+    //
+
 }

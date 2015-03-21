@@ -141,6 +141,8 @@ private slots:
     void onSplitterMoved(int pos, int index);
     void processOfflineMsgs();
 
+    void on_wallButton_clicked();
+    
 private:
     void hideMainForms();
     virtual bool event(QEvent * e);
@@ -159,7 +161,10 @@ private:
     Ui::MainWindow *ui;
     QSplitter *centralLayout;
     QPoint dragPosition;
+
     AddFriendForm *addFriendForm;
+    WallForm * wallForm;
+
     SettingsWidget *settingsWidget;
     FilesForm *filesForm;
     static Widget *instance;

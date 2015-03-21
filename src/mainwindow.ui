@@ -1037,8 +1037,8 @@ QSplitter:handle{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>284</width>
-             <height>399</height>
+             <width>325</width>
+             <height>395</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5"/>
@@ -1075,6 +1075,38 @@ QSplitter:handle{
            <property name="bottomMargin">
             <number>0</number>
            </property>
+           <item>
+            <widget class="QPushButton" name="wallButton">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>55</width>
+               <height>35</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>55</width>
+               <height>35</height>
+              </size>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#fffdfd;&quot;&gt;Wall&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 11pt &quot;Ubuntu&quot;;
+color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>Wall</string>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="QPushButton" name="addButton">
              <property name="minimumSize">
@@ -1779,7 +1811,7 @@ QSplitter:handle{
      <x>0</x>
      <y>0</y>
      <width>775</width>
-     <height>20</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

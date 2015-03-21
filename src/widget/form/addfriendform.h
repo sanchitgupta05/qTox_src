@@ -22,6 +22,7 @@
 #include <QLineEdit>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QListWidget>
 
 namespace Ui {class MainWindow;}
 
@@ -51,6 +52,39 @@ private:
     QLabel headLabel, toxIdLabel, messageLabel;
     QPushButton sendButton;
     QLineEdit toxId;
+    QTextEdit message;
+    QVBoxLayout layout, headLayout;
+    QWidget *head, *main;
+};
+
+// Create a WallForm.h for the following class TODO
+
+class WallForm : public QObject
+{
+    Q_OBJECT
+public:
+    WallForm();
+    ~WallForm();
+
+    void show(Ui::MainWindow &ui);
+    QString getMessage() const;
+
+signals:
+    //void friendRequested(const QString& friendAddress, const QString& message);
+
+protected:
+    //void showWarning(const QString& message) const;
+
+public slots:
+    //void onUsernameSet(const QString& userName);
+
+private slots:
+    void onPostTriggered();
+
+private:
+    QLabel headLabel, wallLabel, messageLabel;
+    QPushButton sendButton;
+    QListWidget* wall;
     QTextEdit message;
     QVBoxLayout layout, headLayout;
     QWidget *head, *main;
