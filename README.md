@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 qTox
 ======
 
@@ -42,3 +43,7 @@ This client runs on Windows, Linux and Mac natively.<br/>
 [GitStats](https://tux3-dev.tox.im/)<br/>
 [Mac & Linux jenkins](https://jenkins.libtoxcore.so/user/tux3/my-views/view/qTox/)<br/>
 [Windows jenkins](https://tux3-dev.tox.im/jenkins)<br/>
+=======
+# qTox_src
+Q-Tox source files for P2P project
+>>>>>>> 20c102ae6f87a053a3198e0551d875a173c2374a
