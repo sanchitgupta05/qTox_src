@@ -16,6 +16,7 @@
 
 #include "addfriendform.h"
 
+#include <iostream>
 #include <QFont>
 #include <QCoreApplication>
 #include <QMessageBox>
@@ -30,6 +31,8 @@
 #include "src/widget/widget.h"
 #include "src/friend.h"
 #include "src/friendlist.h"
+
+using namespace std;
 
 AddFriendForm::AddFriendForm()
 {
@@ -155,7 +158,7 @@ WallForm::WallForm()
     headLayout.addWidget(&headLabel);
 
     connect(&sendButton, SIGNAL(clicked()), this, SLOT(onPostTriggered()));
-    //connect(Nexus::getCore(), &Core::usernameSet, this, &AddFriendForm::onUsernameSet);
+   // connect(&widget, SIGNAL(friendMessageReceived(const QString & message)), this, SLOT(postReceivedMessages(QString)));
 
 }
 
@@ -172,6 +175,19 @@ void WallForm::show(Ui::MainWindow &ui)
     ui.mainHead->layout()->addWidget(head);
     main->show();
     head->show();
+
+    printf("SHOW GOT CALLED\n");
+}
+
+void WallForm::postReceivedMessages(const QString &message)
+{
+    QListWidgetItem item;
+    QColor offline(0,0,255);
+    item.setText(message);
+    item.setTextColor(offline);
+    wall->addItem(&item);
+
+    cout << message.toUtf8().constData() << endl;
 }
 
 void WallForm::onPostTriggered()
@@ -190,6 +206,7 @@ void WallForm::onPostTriggered()
     }
 
 }
+
 
 QString WallForm::getMessage() const
 {

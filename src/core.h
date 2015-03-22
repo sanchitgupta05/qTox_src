@@ -26,6 +26,8 @@
 #include "corestructs.h"
 #include "coreav.h"
 #include "coredefines.h"
+#include <QList>
+#include <QString>
 
 template <typename T> class QList;
 class Camera;
@@ -33,6 +35,9 @@ class QTimer;
 class QString;
 class CString;
 class VideoSource;
+
+//QList<QString> unread_mes;
+
 #ifdef QTOX_FILTER_AUDIO
 class AudioFilterer;
 #endif

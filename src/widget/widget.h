@@ -116,6 +116,8 @@ signals:
     void statusMessageChanged(const QString& statusMessage);
     void changeProfile(const QString& profile);
     void resized();
+    void friendMessageReceived(const QString & message);    // signal for pushing this on the wall
+    void showWall(Ui::MainWindow &ui);
 
 private slots:
     void onAddClicked();
@@ -163,7 +165,7 @@ private:
     QPoint dragPosition;
 
     AddFriendForm *addFriendForm;
-    WallForm * wallForm;
+    //WallForm * wallForm;
 
     SettingsWidget *settingsWidget;
     FilesForm *filesForm;

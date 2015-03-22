@@ -2,6 +2,7 @@
 #define NEXUS_H
 
 #include <QObject>
+#include "src/widget/form/addfriendform.h"
 
 class QThread;
 class Core;
@@ -32,6 +33,7 @@ private:
     Core* core;
     QThread* coreThread;
     Widget* widget;
+    WallForm * wallForm;
     AndroidGUI* androidgui;
     bool started;
 };

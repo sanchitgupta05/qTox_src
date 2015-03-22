@@ -66,7 +66,6 @@ public:
     WallForm();
     ~WallForm();
 
-    void show(Ui::MainWindow &ui);
     QString getMessage() const;
 
 signals:
@@ -80,6 +79,8 @@ public slots:
 
 private slots:
     void onPostTriggered();
+    void postReceivedMessages(const QString & message);
+    void show(Ui::MainWindow &ui);
 
 private:
     QLabel headLabel, wallLabel, messageLabel;

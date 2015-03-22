@@ -176,7 +176,7 @@ void Widget::init()
     filesForm = new FilesForm();
 
     addFriendForm = new AddFriendForm;
-    wallForm = new WallForm;
+   // wallForm = new WallForm;
 
     settingsWidget = new SettingsWidget();
 
@@ -197,9 +197,10 @@ void Widget::init()
     connect(timer, &QTimer::timeout, this, &Widget::onEventIconTick);
     connect(timer, &QTimer::timeout, this, &Widget::onTryCreateTrayIcon);
     connect(offlineMsgTimer, &QTimer::timeout, this, &Widget::processOfflineMsgs);
+    //connect(Widget, SIGNAL(friendMessageReceived(const QString & message)), wallForm, );
 
-    //addFriendForm->show(*ui);
-    wallForm->show(*ui);
+    addFriendForm->show(*ui);
+    //wallForm->show(*ui);
 
 #if (AUTOUPDATE_ENABLED)
     if (Settings::getInstance().getCheckUpdates())
@@ -253,7 +254,7 @@ Widget::~Widget()
     hideMainForms();
     delete settingsWidget;
     delete addFriendForm;
-    delete wallForm;
+    //delete wallForm;
     delete filesForm;
     delete timer;
     delete offlineMsgTimer;
@@ -744,6 +745,8 @@ void Widget::onFriendMessageReceived(int friendId, const QString& message, bool 
     f->setEventFlag(static_cast<GenericChatroomWidget*>(f->getFriendWidget()) != activeChatroomWidget);
     newMessageAlert(f->getFriendWidget());
     f->getFriendWidget()->updateStatusLight();
+
+    emit friendMessageReceived(message);
 }
 
 void Widget::onReceiptRecieved(int friendId, int receipt)
@@ -1230,6 +1233,9 @@ void Widget::previousContact()
 void Widget::on_wallButton_clicked()
 {
     hideMainForms();
-    wallForm->show(*ui);
+    //wallForm->show(*ui);
     setWindowTitle(tr("Wall"));
+
+    emit this->showWall(*ui);
 }
+

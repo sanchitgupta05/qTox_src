@@ -22,6 +22,7 @@
 #include "widget/gui.h"
 #include "historykeeper.h"
 #include "src/audio.h"
+#include "src/widget/form/addfriendform.h"
 
 #include <tox/tox.h>
 
