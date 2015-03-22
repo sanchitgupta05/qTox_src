@@ -28,6 +28,8 @@
 #include "src/toxdns.h"
 #include "src/misc/settings.h"
 #include "src/widget/widget.h"
+#include "src/friend.h"
+#include "src/friendlist.h"
 
 AddFriendForm::AddFriendForm()
 {
@@ -183,16 +185,9 @@ void WallForm::onPostTriggered()
     item.setTextColor(offline);
     wall->addItem(&item);
 
-    qApp->processEvents();
-
-    // Send the messages to your friends
-
-    //traverse the friends list
-
-        // Check if Online .. if online send the message
-
-        // if not, then send the messages to the trusted nodes of the friend
-
+    for(auto f : FriendList::getAllFriends()) {
+        Core::getInstance()->sendMessage(f->getFriendID(), msg);
+    }
 
 }
 

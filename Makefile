@@ -12,7 +12,7 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DGIT_VERSION="\"2ea3d73756b5e846dac461f9762eaca12dad8134\"" -DTIMESTAMP=1425879168 -DLOG_TO_FILE -DQTOX_PLATFORM_EXT -DQTOX_FILTER_AUDIO -DENABLE_SYSTRAY_STATUSNOTIFIER_BACKEND -DENABLE_SYSTRAY_GTK_BACKEND -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_SQL_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DGIT_VERSION="\"d6d2a620ade6a9a27b78cf9483c3157632525f84\"" -DTIMESTAMP=1426987807 -DLOG_TO_FILE -DQTOX_PLATFORM_EXT -DQTOX_FILTER_AUDIO -DENABLE_SYSTRAY_STATUSNOTIFIER_BACKEND -DENABLE_SYSTRAY_GTK_BACKEND -DQT_NO_DEBUG -DQT_SVG_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_SQL_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -O2 -std=c++0x -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -Ilibs/include -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/lib64/glib-2.0/include -I/usr/lib/i386-linux-gnu/glib-2.0/include -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/lib64/gtk-2.0/include -I/usr/lib/i386-linux-gnu/gtk-2.0/include -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/lib64/glib-2.0/include -I/usr/lib/i386-linux-gnu/glib-2.0/include -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/lib64/gtk-2.0/include -I/usr/lib/i386-linux-gnu/gtk-2.0/include -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/qt5 -I/usr/include/qt5/QtSvg -I/usr/include/qt5/QtOpenGL -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtSql -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtNetwork -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I.
@@ -647,883 +647,236 @@ compiler_rcc_make_all: qrc_res.cpp qrc_smileys.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_res.cpp qrc_smileys.cpp
 qrc_res.cpp: res.qrc \
+		audio/ToxicIncomingCall.pcm \
+		audio/notification.pcm \
+		img/contact_dark.png \
+		img/group_dark.png \
+		img/icon.png \
+		img/avatar_mask.png \
+		img/contact.png \
+		img/group.png \
+		img/group_2x.png \
+		img/add.png \
+		img/transfer.png \
+		img/group_button.png \
+		img/settings.png \
+		img/status/dot_away_2x.png \
+		img/status/dot_busy.png \
+		img/status/dot_away.png \
+		img/status/dot_away_notification.png \
+		img/status/dot_online.png \
+		img/status/dot_groupchat.png \
+		img/status/dot_idle_2x.png \
+		img/status/dot_busy_2x.png \
+		img/status/dot_groupchat_newmessages.png \
+		img/status/dot_online_2x.png \
+		img/status/dot_busy_notification.png \
+		img/status/dot_groupchat_notification.png \
+		img/status/dot_idle.png \
+		img/status/dot_idle_notification.png \
+		img/status/dot_online_notification.png \
+		img/taskbar/light/taskbar_offline.svg \
+		img/taskbar/light/taskbar_event.svg \
+		img/taskbar/light/taskbar_busy.svg \
+		img/taskbar/light/taskbar_away.svg \
+		img/taskbar/light/taskbar_online.svg \
+		img/taskbar/dark/taskbar_offline.svg \
+		img/taskbar/dark/taskbar_event.svg \
+		img/taskbar/dark/taskbar_busy.svg \
+		img/taskbar/dark/taskbar_away.svg \
+		img/taskbar/dark/taskbar_online.svg \
+		img/settings/general.png \
+		img/settings/identity.png \
+		img/settings/av.png \
+		img/settings/privacy.png \
 		res/DejaVuSans.ttf \
 		res/settings.ini \
-		ui/fileButton/fileButtonPressed.png \
-		ui/fileButton/fileButtonDisabled.png \
-		ui/fileButton/fileButton.css \
-		ui/fileButton/fileButton.png \
-		ui/fileButton/fileButtonHover.png \
-		ui/friendList/friendList.css \
-		ui/acceptFileButton/hover.png \
-		ui/acceptFileButton/default.png \
-		ui/acceptFileButton/pressed.png \
-		ui/acceptFileButton/style.css \
+		ui/statusButton/menu_indicator.png \
+		ui/statusButton/statusButton.css \
+		ui/settings/mainHead.css \
+		ui/settings/mainContent.css \
+		ui/videoButton/videoButtonRedPressed.png \
+		ui/videoButton/videoButtonYellow.png \
+		ui/videoButton/videoButton.css \
+		ui/videoButton/videoButton.png \
+		ui/videoButton/videoButtonDisabled.png \
+		ui/videoButton/videoButtonPressed.png \
+		ui/videoButton/videoButtonYellowPressed.png \
+		ui/videoButton/videoButtonRed.png \
+		ui/videoButton/videoButtonHover.png \
+		ui/videoButton/videoButtonRedHover.png \
+		ui/videoButton/videoButtonYellowHover.png \
 		ui/fileTransferInstance/dir.svg \
-		ui/fileTransferInstance/arrow_white.svg \
-		ui/fileTransferInstance/browse.svg \
-		ui/fileTransferInstance/yes.svg \
-		ui/fileTransferInstance/no.svg \
 		ui/fileTransferInstance/pause.svg \
+		ui/fileTransferInstance/no.svg \
+		ui/fileTransferInstance/arrow_white.svg \
+		ui/fileTransferInstance/yes.svg \
 		ui/fileTransferInstance/filetransferWidget.css \
+		ui/fileTransferInstance/browse.svg \
+		ui/chatArea/spinner.svg \
+		ui/chatArea/scrollBarUpArrow.png \
+		ui/chatArea/scrollBarDownArrowPressed.png \
+		ui/chatArea/scrollBarUpArrowHover.png \
+		ui/chatArea/info.svg \
+		ui/chatArea/innerStyle.css \
+		ui/chatArea/scrollBarUpArrowPressed.png \
+		ui/chatArea/scrollBarDownArrowHover.png \
+		ui/chatArea/scrollBarHandle.png \
+		ui/chatArea/typing.svg \
+		ui/chatArea/chatArea.css \
+		ui/chatArea/chatHead.css \
+		ui/chatArea/scrollBarDownArrow.png \
+		ui/chatArea/error.svg \
+		ui/chatroomWidgets/genericChatroomWidget.css \
+		ui/fileTransferWidget/fileTransferWidget.css \
+		ui/msgEdit/msgEdit.css \
+		ui/sendButton/sendButtonHover.png \
 		ui/sendButton/sendButtonPressed.png \
 		ui/sendButton/sendButton.css \
 		ui/sendButton/sendButton.png \
-		ui/sendButton/sendButtonHover.png \
-		ui/msgEdit/msgEdit.css \
-		ui/chatroomWidgets/genericChatroomWidget.css \
-		ui/volButton/volButtonDisabled.png \
+		ui/acceptFileButton/hover.png \
+		ui/acceptFileButton/style.css \
+		ui/acceptFileButton/default.png \
+		ui/acceptFileButton/pressed.png \
+		ui/window/window.css \
+		ui/window/statusPanel.css \
+		ui/window/applicationIcon.png \
+		ui/emoteButton/emoteButton.css \
+		ui/emoteButton/emoteButtonHover.png \
+		ui/emoteButton/emoteButton.png \
+		ui/emoteButton/emoteButtonPressed.png \
+		ui/rejectCall/rejectCall.png \
 		ui/volButton/volButtonPressed.png \
 		ui/volButton/volButton.css \
+		ui/volButton/volButtonDisabled.png \
 		ui/volButton/volButton.png \
 		ui/volButton/volButtonHover.png \
-		ui/emoteButton/emoteButtonPressed.png \
-		ui/emoteButton/emoteButtonHover.png \
-		ui/emoteButton/emoteButton.css \
-		ui/emoteButton/emoteButton.png \
-		ui/micButton/micButtonPressed.png \
+		ui/pauseFileButton/hover.png \
+		ui/pauseFileButton/style.css \
+		ui/pauseFileButton/default.png \
+		ui/pauseFileButton/pressed.png \
+		ui/callButton/callButtonRed.png \
+		ui/callButton/callButtonPressed.png \
+		ui/callButton/callButtonYellow.png \
+		ui/callButton/callButton.css \
+		ui/callButton/callButton.png \
+		ui/callButton/callButtonRedPressed.png \
+		ui/callButton/callButtonRedHover.png \
+		ui/callButton/callButtonHover.png \
+		ui/callButton/callButtonYellowHover.png \
+		ui/callButton/callButtonYellowPressed.png \
+		ui/callButton/callButtonDisabled.png \
+		ui/acceptCall/acceptCall.png \
 		ui/micButton/micButton.css \
 		ui/micButton/micButton.png \
 		ui/micButton/micButtonHover.png \
 		ui/micButton/micButtonDisabled.png \
-		ui/fileTransferWidget/fileTransferWidget.css \
-		ui/rejectCall/rejectCall.png \
-		ui/window/window.css \
-		ui/window/applicationIcon.png \
-		ui/window/statusPanel.css \
-		ui/callButton/callButtonRed.png \
-		ui/callButton/callButtonRedPressed.png \
-		ui/callButton/callButtonYellowPressed.png \
-		ui/callButton/callButton.css \
-		ui/callButton/callButton.png \
-		ui/callButton/callButtonYellow.png \
-		ui/callButton/callButtonHover.png \
-		ui/callButton/callButtonRedHover.png \
-		ui/callButton/callButtonYellowHover.png \
-		ui/callButton/callButtonDisabled.png \
-		ui/callButton/callButtonPressed.png \
-		ui/acceptCall/acceptCall.png \
+		ui/micButton/micButtonPressed.png \
 		ui/stopFileButton/hover.png \
+		ui/stopFileButton/style.css \
 		ui/stopFileButton/default.png \
 		ui/stopFileButton/pressed.png \
-		ui/stopFileButton/style.css \
-		ui/pauseFileButton/hover.png \
-		ui/pauseFileButton/default.png \
-		ui/pauseFileButton/pressed.png \
-		ui/pauseFileButton/style.css \
+		ui/emoticonWidget/dot_page_current.png \
 		ui/emoticonWidget/dot_page_hover.png \
 		ui/emoticonWidget/emoticonWidget.css \
-		ui/emoticonWidget/dot_page_current.png \
 		ui/emoticonWidget/dot_page.png \
-		ui/settings/mainContent.css \
-		ui/settings/mainHead.css \
-		ui/chatArea/scrollBarDownArrow.png \
-		ui/chatArea/scrollBarUpArrowPressed.png \
-		ui/chatArea/chatHead.css \
-		ui/chatArea/chatArea.css \
-		ui/chatArea/scrollBarDownArrowHover.png \
-		ui/chatArea/error.svg \
-		ui/chatArea/innerStyle.css \
-		ui/chatArea/scrollBarHandle.png \
-		ui/chatArea/scrollBarUpArrow.png \
-		ui/chatArea/info.svg \
-		ui/chatArea/scrollBarUpArrowHover.png \
-		ui/chatArea/scrollBarDownArrowPressed.png \
-		ui/chatArea/spinner.svg \
-		ui/chatArea/typing.svg \
-		ui/statusButton/menu_indicator.png \
-		ui/statusButton/statusButton.css \
-		ui/videoButton/videoButtonDisabled.png \
-		ui/videoButton/videoButtonYellowPressed.png \
-		ui/videoButton/videoButtonRedPressed.png \
-		ui/videoButton/videoButtonYellowHover.png \
-		ui/videoButton/videoButtonPressed.png \
-		ui/videoButton/videoButtonRed.png \
-		ui/videoButton/videoButton.css \
-		ui/videoButton/videoButtonRedHover.png \
-		ui/videoButton/videoButton.png \
-		ui/videoButton/videoButtonHover.png \
-		ui/videoButton/videoButtonYellow.png \
+		ui/fileButton/fileButtonHover.png \
+		ui/fileButton/fileButtonDisabled.png \
+		ui/fileButton/fileButtonPressed.png \
+		ui/fileButton/fileButton.css \
+		ui/fileButton/fileButton.png \
+		ui/friendList/friendList.css \
+		translations/pt.qm \
+		translations/ru.qm \
+		translations/de.qm \
+		translations/zh.qm \
 		translations/sv.qm \
 		translations/fr.qm \
 		translations/bg.qm \
 		translations/es.qm \
 		translations/nl.qm \
 		translations/uk.qm \
+		translations/pirate.qm \
+		translations/mannol.qm \
 		translations/pl.qm \
 		translations/sl.qm \
 		translations/it.qm \
 		translations/lt.qm \
-		translations/fi.qm \
 		translations/hu.qm \
-		translations/pt.qm \
-		translations/pirate.qm \
-		translations/ru.qm \
-		translations/de.qm \
-		translations/mannol.qm \
-		translations/zh.qm \
-		audio/ToxicIncomingCall.pcm \
-		audio/notification.pcm \
-		img/contact.png \
-		img/transfer.png \
-		img/contact_dark.png \
-		img/group_dark.png \
-		img/add.png \
-		img/settings.png \
-		img/icon.png \
-		img/group.png \
-		img/avatar_mask.png \
-		img/group_2x.png \
-		img/group_button.png \
-		img/taskbar/light/taskbar_event.svg \
-		img/taskbar/light/taskbar_busy.svg \
-		img/taskbar/light/taskbar_away.svg \
-		img/taskbar/light/taskbar_online.svg \
-		img/taskbar/light/taskbar_offline.svg \
-		img/taskbar/dark/taskbar_event.svg \
-		img/taskbar/dark/taskbar_busy.svg \
-		img/taskbar/dark/taskbar_away.svg \
-		img/taskbar/dark/taskbar_online.svg \
-		img/taskbar/dark/taskbar_offline.svg \
-		img/status/dot_groupchat_notification.png \
-		img/status/dot_online.png \
-		img/status/dot_idle_notification.png \
-		img/status/dot_groupchat.png \
-		img/status/dot_idle.png \
-		img/status/dot_away_notification.png \
-		img/status/dot_busy.png \
-		img/status/dot_away_2x.png \
-		img/status/dot_online_notification.png \
-		img/status/dot_away.png \
-		img/status/dot_online_2x.png \
-		img/status/dot_groupchat_newmessages.png \
-		img/status/dot_busy_notification.png \
-		img/status/dot_busy_2x.png \
-		img/status/dot_idle_2x.png \
-		img/settings/privacy.png \
-		img/settings/av.png \
-		img/settings/general.png \
-		img/settings/identity.png
+		translations/fi.qm
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name res res.qrc -o qrc_res.cpp
 
 qrc_smileys.cpp: smileys/smileys.qrc \
-		smileys/cylgom/devil.png \
-		smileys/cylgom/suspicious.png \
-		smileys/cylgom/MrSmith.png \
-		smileys/cylgom/moustache.png \
-		smileys/cylgom/syringe.png \
-		smileys/cylgom/wink.png \
-		smileys/cylgom/doh.png \
-		smileys/cylgom/inlove.png \
-		smileys/cylgom/tongue.png \
-		smileys/cylgom/crying.png \
-		smileys/cylgom/eye.png \
-		smileys/cylgom/nospeak.png \
-		smileys/cylgom/happysmile.png \
-		smileys/cylgom/finger.png \
-		smileys/cylgom/wondering.png \
-		smileys/cylgom/impressed.png \
-		smileys/cylgom/sleeping.png \
-		smileys/cylgom/pressed.png \
-		smileys/cylgom/highfive.png \
-		smileys/cylgom/heart.png \
-		smileys/cylgom/XP.png \
-		smileys/cylgom/facepalm.png \
-		smileys/cylgom/crossing.png \
-		smileys/cylgom/sad.png \
-		smileys/cylgom/angry.png \
-		smileys/cylgom/whew.png \
-		smileys/cylgom/rain.png \
-		smileys/cylgom/yawn.png \
-		smileys/cylgom/party.png \
-		smileys/cylgom/nerd.png \
-		smileys/cylgom/X(.png \
-		smileys/cylgom/lol.png \
-		smileys/cylgom/shy.png \
-		smileys/cylgom/bored.png \
-		smileys/cylgom/diamond.png \
-		smileys/cylgom/cookie.png \
-		smileys/cylgom/jealous.png \
-		smileys/cylgom/XD.png \
-		smileys/cylgom/vomit.png \
-		smileys/cylgom/emoticons.xml \
-		smileys/cylgom/bomb.png \
-		smileys/cylgom/cool.png \
-		smileys/cylgom/rocknroll.png \
-		smileys/cylgom/hot.png \
-		smileys/cylgom/hacker_terminal.png \
-		smileys/cylgom/toxlocker.png \
-		smileys/cylgom/angel.png \
-		smileys/cylgom/hi.png \
-		smileys/cylgom/smile.png \
-		smileys/cylgom/kiss.png \
-		smileys/cylgom/wasntme.png \
-		smileys/cylgom/oops.png \
-		smileys/cylgom/beer.png \
-		smileys/cylgom/sniggering.png \
-		smileys/cylgom/evil.png \
-		smileys/TwitterEmojiSimple/emoticons.xml \
-		smileys/TwitterEmojiSVG/1f532.svg \
-		smileys/TwitterEmojiSVG/1f195.svg \
-		smileys/TwitterEmojiSVG/1f502.svg \
-		smileys/TwitterEmojiSVG/1f36d.svg \
-		smileys/TwitterEmojiSVG/1f33d.svg \
-		smileys/TwitterEmojiSVG/1f3e2.svg \
-		smileys/TwitterEmojiSVG/1f30d.svg \
-		smileys/TwitterEmojiSVG/1f566.svg \
-		smileys/TwitterEmojiSVG/1f3b2.svg \
-		smileys/TwitterEmojiSVG/1f536.svg \
-		smileys/TwitterEmojiSVG/2733.svg \
-		smileys/TwitterEmojiSVG/1f199.svg \
-		smileys/TwitterEmojiSVG/1f506.svg \
-		smileys/TwitterEmojiSVG/1f1ed.svg \
-		smileys/TwitterEmojiSVG/1f69a.svg \
-		smileys/TwitterEmojiSVG/1f472.svg \
-		smileys/TwitterEmojiSVG/1f3e6.svg \
-		smileys/TwitterEmojiSVG/1f442.svg \
-		smileys/TwitterEmojiSVG/1f63a.svg \
-		smileys/TwitterEmojiSVG/1f3b6.svg \
-		smileys/TwitterEmojiSVG/1f412.svg \
-		smileys/TwitterEmojiSVG/1f60a.svg \
-		smileys/TwitterEmojiSVG/a9.svg \
-		smileys/TwitterEmojiSVG/1f69e.svg \
-		smileys/TwitterEmojiSVG/1f4ea.svg \
-		smileys/TwitterEmojiSVG/1f476.svg \
-		smileys/TwitterEmojiSVG/1f4ba.svg \
-		smileys/TwitterEmojiSVG/1f446.svg \
-		smileys/TwitterEmojiSVG/1f63e.svg \
-		smileys/TwitterEmojiSVG/1f416.svg \
-		smileys/TwitterEmojiSVG/1f60e.svg \
-		smileys/TwitterEmojiSVG/1f6b3.svg \
-		smileys/TwitterEmojiSVG/1f382.svg \
-		smileys/TwitterEmojiSVG/1f4ee.svg \
-		smileys/TwitterEmojiSVG/1f352.svg \
-		smileys/TwitterEmojiSVG/1f4be.svg \
-		smileys/TwitterEmojiSVG/1f55a.svg \
-		smileys/TwitterEmojiSVG/1f52a.svg \
-		smileys/TwitterEmojiSVG/1f6b7.svg \
-		smileys/TwitterEmojiSVG/1f386.svg \
-		smileys/TwitterEmojiSVG/1f356.svg \
-		smileys/TwitterEmojiSVG/1f55e.svg \
-		smileys/TwitterEmojiSVG/1f3aa.svg \
-		smileys/TwitterEmojiSVG/1f52e.svg \
-		smileys/TwitterEmojiSVG/1f49a.svg \
-		smileys/TwitterEmojiSVG/1f46a.svg \
-		smileys/TwitterEmojiSVG/1f683.svg \
-		smileys/TwitterEmojiSVG/1f232.svg \
-		smileys/TwitterEmojiSVG/1f43a.svg \
-		smileys/TwitterEmojiSVG/1f202.svg \
-		smileys/TwitterEmojiSVG/1f3ae.svg \
-		smileys/TwitterEmojiSVG/1f40a.svg \
-		smileys/TwitterEmojiSVG/1f623.svg \
-		smileys/TwitterEmojiSVG/1f49e.svg \
-		smileys/TwitterEmojiSVG/1f46e.svg \
-		smileys/TwitterEmojiSVG/1f687.svg \
-		smileys/TwitterEmojiSVG/1f236.svg \
-		smileys/TwitterEmojiSVG/1f4d3.svg \
-		smileys/TwitterEmojiSVG/1f43e.svg \
-		smileys/TwitterEmojiSVG/1f4a3.svg \
-		smileys/TwitterEmojiSVG/26a0.svg \
-		smileys/TwitterEmojiSVG/1f627.svg \
-		smileys/TwitterEmojiSVG/1f40e.svg \
-		smileys/TwitterEmojiSVG/1f6ab.svg \
-		smileys/TwitterEmojiSVG/1f37a.svg \
-		smileys/TwitterEmojiSVG/1f34a.svg \
-		smileys/TwitterEmojiSVG/1f4d7.svg \
-		smileys/TwitterEmojiSVG/26d4.svg \
-		smileys/TwitterEmojiSVG/1f31a.svg \
-		smileys/TwitterEmojiSVG/1f4a7.svg \
-		smileys/TwitterEmojiSVG/1f6af.svg \
-		smileys/TwitterEmojiSVG/1f513.svg \
-		smileys/TwitterEmojiSVG/1f1fa.svg \
-		smileys/TwitterEmojiSVG/1f34e.svg \
-		smileys/TwitterEmojiSVG/1f31e.svg \
-		smileys/TwitterEmojiSVG/1f3c3.svg \
-		smileys/TwitterEmojiSVG/2744.svg \
-		smileys/TwitterEmojiSVG/1f517.svg \
-		smileys/TwitterEmojiSVG/2714.svg \
-		smileys/TwitterEmojiSVG/1f1fe.svg \
-		smileys/TwitterEmojiSVG/1f483.svg \
-		smileys/TwitterEmojiSVG/1f453.svg \
-		smileys/TwitterEmojiSVG/1f64b.svg \
-		smileys/TwitterEmojiSVG/2650.svg \
-		smileys/TwitterEmojiSVG/1f3c7.svg \
-		smileys/TwitterEmojiSVG/1f423.svg \
-		smileys/TwitterEmojiSVG/1f61b.svg \
-		smileys/TwitterEmojiSVG/1f6c0.svg \
-		smileys/TwitterEmojiSVG/1f4fb.svg \
-		smileys/TwitterEmojiSVG/1f487.svg \
-		smileys/TwitterEmojiSVG/1f1e9-1f1ea.svg \
-		smileys/TwitterEmojiSVG/1f4cb.svg \
-		smileys/TwitterEmojiSVG/1f457.svg \
-		smileys/TwitterEmojiSVG/1f64f.svg \
-		smileys/TwitterEmojiSVG/1f427.svg \
-		smileys/TwitterEmojiSVG/1f61f.svg \
-		smileys/TwitterEmojiSVG/1f6c4.svg \
-		smileys/TwitterEmojiSVG/1f19a.svg \
-		smileys/TwitterEmojiSVG/1f393.svg \
-		smileys/TwitterEmojiSVG/1f363.svg \
-		smileys/TwitterEmojiSVG/1f4cf.svg \
-		smileys/TwitterEmojiSVG/1f333.svg \
-		smileys/TwitterEmojiSVG/1f303.svg \
-		smileys/TwitterEmojiSVG/1f53b.svg \
-		smileys/TwitterEmojiSVG/1f50b.svg \
-		smileys/TwitterEmojiSVG/1f367.svg \
-		smileys/TwitterEmojiSVG/1f690.svg \
-		smileys/TwitterEmojiSVG/1f3eb.svg \
-		smileys/TwitterEmojiSVG/1f337.svg \
-		smileys/TwitterEmojiSVG/1f3bb.svg \
-		smileys/TwitterEmojiSVG/1f630.svg \
-		smileys/TwitterEmojiSVG/1f307.svg \
-		smileys/TwitterEmojiSVG/27a1.svg \
-		smileys/TwitterEmojiSVG/1f600.svg \
-		smileys/TwitterEmojiSVG/1f50f.svg \
-		smileys/TwitterEmojiSVG/270c.svg \
-		smileys/TwitterEmojiSVG/ae.svg \
-		smileys/TwitterEmojiSVG/1f1e7.svg \
-		smileys/TwitterEmojiSVG/1f47b.svg \
-		smileys/TwitterEmojiSVG/1f694.svg \
-		smileys/TwitterEmojiSVG/1f3ef.svg \
-		smileys/TwitterEmojiSVG/1f4e0.svg \
-		smileys/TwitterEmojiSVG/1f44b.svg \
-		smileys/TwitterEmojiSVG/3297.svg \
-		smileys/TwitterEmojiSVG/1f4b0.svg \
-		smileys/TwitterEmojiSVG/1f3bf.svg \
-		smileys/TwitterEmojiSVG/1f41b.svg \
-		smileys/TwitterEmojiSVG/1f634.svg \
-		smileys/TwitterEmojiSVG/1f604.svg \
-		smileys/TwitterEmojiSVG/1f47f.svg \
-		smileys/TwitterEmojiSVG/1f698.svg \
-		smileys/TwitterEmojiSVG/1f4e4.svg \
-		smileys/TwitterEmojiSVG/1f44f.svg \
-		smileys/TwitterEmojiSVG/264c.svg \
-		smileys/TwitterEmojiSVG/1f4b4.svg \
-		smileys/TwitterEmojiSVG/1f638.svg \
-		smileys/TwitterEmojiSVG/1f41f.svg \
-		smileys/TwitterEmojiSVG/1f550.svg \
-		smileys/TwitterEmojiSVG/1f6bc.svg \
-		smileys/TwitterEmojiSVG/1f608.svg \
-		smileys/TwitterEmojiSVG/1f520.svg \
-		smileys/TwitterEmojiSVG/1f38b.svg \
-		smileys/TwitterEmojiSVG/1f35b.svg \
-		smileys/TwitterEmojiSVG/1f4e8.svg \
-		smileys/TwitterEmojiSVG/1f4b8.svg \
-		smileys/TwitterEmojiSVG/1f554.svg \
-		smileys/TwitterEmojiSVG/1f3a0.svg \
-		smileys/TwitterEmojiSVG/1f524.svg \
-		smileys/TwitterEmojiSVG/1f38f.svg \
-		smileys/TwitterEmojiSVG/1f490.svg \
-		smileys/TwitterEmojiSVG/1f35f.svg \
-		smileys/TwitterEmojiSVG/1f5fc.svg \
-		smileys/TwitterEmojiSVG/1f460.svg \
-		smileys/TwitterEmojiSVG/1f430.svg \
-		smileys/TwitterEmojiSVG/1f558.svg \
-		smileys/TwitterEmojiSVG/2755.svg \
-		smileys/TwitterEmojiSVG/1f3a4.svg \
-		smileys/TwitterEmojiSVG/1f400.svg \
-		smileys/TwitterEmojiSVG/1f528.svg \
-		smileys/TwitterEmojiSVG/1f494.svg \
-		smileys/TwitterEmojiSVG/1f68c.svg \
-		smileys/TwitterEmojiSVG/1f464.svg \
-		smileys/TwitterEmojiSVG/1f434.svg \
-		smileys/TwitterEmojiSVG/1f62c.svg \
-		smileys/TwitterEmojiSVG/1f3a8.svg \
-		smileys/TwitterEmojiSVG/1f404.svg \
-		smileys/TwitterEmojiSVG/2601.svg \
-		smileys/TwitterEmojiSVG/1f6a1.svg \
-		smileys/TwitterEmojiSVG/1f370.svg \
-		smileys/TwitterEmojiSVG/1f498.svg \
-		smileys/TwitterEmojiSVG/1f4dc.svg \
-		smileys/TwitterEmojiSVG/1f340.svg \
-		smileys/TwitterEmojiSVG/1f468.svg \
-		smileys/TwitterEmojiSVG/2665.svg \
-		smileys/TwitterEmojiSVG/1f4ac.svg \
-		smileys/TwitterEmojiSVG/1f438.svg \
-		smileys/TwitterEmojiSVG/1f310.svg \
-		smileys/TwitterEmojiSVG/1f408.svg \
-		smileys/TwitterEmojiSVG/1f6a5.svg \
-		smileys/TwitterEmojiSVG/1f1f0.svg \
-		smileys/TwitterEmojiSVG/1f374.svg \
-		smileys/TwitterEmojiSVG/1f344.svg \
-		smileys/TwitterEmojiSVG/1f314.svg \
-		smileys/TwitterEmojiSVG/1f51c.svg \
-		smileys/TwitterEmojiSVG/1f6a9.svg \
-		smileys/TwitterEmojiSVG/1f17f.svg \
-		smileys/TwitterEmojiSVG/1f1fa-1f1f8.svg \
-		smileys/TwitterEmojiSVG/1f1f4.svg \
-		smileys/TwitterEmojiSVG/1f378.svg \
-		smileys/TwitterEmojiSVG/1f250.svg \
-		smileys/TwitterEmojiSVG/1f348.svg \
-		smileys/TwitterEmojiSVG/1f318.svg \
-		smileys/TwitterEmojiSVG/1f611.svg \
-		smileys/TwitterEmojiSVG/1f1f8.svg \
-		smileys/TwitterEmojiSVG/1f48c.svg \
-		smileys/TwitterEmojiSVG/1f4f1.svg \
-		smileys/TwitterEmojiSVG/1f45c.svg \
-		smileys/TwitterEmojiSVG/1f4c1.svg \
-		smileys/TwitterEmojiSVG/1f42c.svg \
-		smileys/TwitterEmojiSVG/1f645.svg \
-		smileys/TwitterEmojiSVG/1f615.svg \
-		smileys/TwitterEmojiSVG/1f4f5.svg \
-		smileys/TwitterEmojiSVG/26f2.svg \
-		smileys/TwitterEmojiSVG/1f4c5.svg \
-		smileys/TwitterEmojiSVG/1f649.svg \
-		smileys/TwitterEmojiSVG/1f561.svg \
-		smileys/TwitterEmojiSVG/1f619.svg \
-		smileys/TwitterEmojiSVG/1f531.svg \
-		smileys/TwitterEmojiSVG/1f194.svg \
-		smileys/TwitterEmojiSVG/1f501.svg \
-		smileys/TwitterEmojiSVG/1f36c.svg \
-		smileys/TwitterEmojiSVG/1f4f9.svg \
-		smileys/TwitterEmojiSVG/1f33c.svg \
-		smileys/TwitterEmojiSVG/1f595.svg \
-		smileys/TwitterEmojiSVG/1f4c9.svg \
-		smileys/TwitterEmojiSVG/1f3e1.svg \
-		smileys/TwitterEmojiSVG/1f30c.svg \
-		smileys/TwitterEmojiSVG/1f565.svg \
-		smileys/TwitterEmojiSVG/1f3b1.svg \
-		smileys/TwitterEmojiSVG/1f535.svg \
-		smileys/TwitterEmojiSVG/1f198.svg \
-		smileys/TwitterEmojiSVG/1f505.svg \
-		smileys/TwitterEmojiSVG/2702.svg \
-		smileys/TwitterEmojiSVG/1f1ec.svg \
-		smileys/TwitterEmojiSVG/1f471.svg \
-		smileys/TwitterEmojiSVG/1f3e5.svg \
-		smileys/TwitterEmojiSVG/1f3b5.svg \
-		smileys/TwitterEmojiSVG/1f411.svg \
-		smileys/TwitterEmojiSVG/1f539.svg \
-		smileys/TwitterEmojiSVG/1f509.svg \
-		smileys/TwitterEmojiSVG/1f69d.svg \
-		smileys/TwitterEmojiSVG/1f475.svg \
-		smileys/TwitterEmojiSVG/1f3e9.svg \
-		smileys/TwitterEmojiSVG/1f445.svg \
-		smileys/TwitterEmojiSVG/1f63d.svg \
-		smileys/TwitterEmojiSVG/1f3b9.svg \
-		smileys/TwitterEmojiSVG/1f60d.svg \
-		smileys/TwitterEmojiSVG/1f415.svg \
-		smileys/TwitterEmojiSVG/1f6b2.svg \
-		smileys/TwitterEmojiSVG/1f381.svg \
-		smileys/TwitterEmojiSVG/1f4ed.svg \
-		smileys/TwitterEmojiSVG/26ea.svg \
-		smileys/TwitterEmojiSVG/1f351.svg \
-		smileys/TwitterEmojiSVG/1f479.svg \
-		smileys/TwitterEmojiSVG/1f4bd.svg \
-		smileys/TwitterEmojiSVG/1f449.svg \
-		smileys/TwitterEmojiSVG/1f419.svg \
-		smileys/TwitterEmojiSVG/1f6b6.svg \
-		smileys/TwitterEmojiSVG/1f385.svg \
-		smileys/TwitterEmojiSVG/1f355.svg \
-		smileys/TwitterEmojiSVG/26be.svg \
-		smileys/TwitterEmojiSVG/1f55d.svg \
-		smileys/TwitterEmojiSVG/1f52d.svg \
-		smileys/TwitterEmojiSVG/1f389.svg \
-		smileys/TwitterEmojiSVG/1f359.svg \
-		smileys/TwitterEmojiSVG/1f682.svg \
-		smileys/TwitterEmojiSVG/1f201.svg \
-		smileys/TwitterEmojiSVG/1f3ad.svg \
-		smileys/TwitterEmojiSVG/1f622.svg \
-		smileys/TwitterEmojiSVG/1f49d.svg \
-		smileys/TwitterEmojiSVG/1f46d.svg \
-		smileys/TwitterEmojiSVG/1f686.svg \
-		smileys/TwitterEmojiSVG/1f235.svg \
-		smileys/TwitterEmojiSVG/1f4d2.svg \
-		smileys/TwitterEmojiSVG/1f43d.svg \
-		smileys/TwitterEmojiSVG/263a.svg \
-		smileys/TwitterEmojiSVG/1f4a2.svg \
-		smileys/TwitterEmojiSVG/1f40d.svg \
-		smileys/TwitterEmojiSVG/1f626.svg \
-		smileys/TwitterEmojiSVG/1f6aa.svg \
-		smileys/TwitterEmojiSVG/1f171.svg \
-		smileys/TwitterEmojiSVG/1f239.svg \
-		smileys/TwitterEmojiSVG/1f4d6.svg \
-		smileys/TwitterEmojiSVG/1f4a6.svg \
-		smileys/TwitterEmojiSVG/260e.svg \
-		smileys/TwitterEmojiSVG/1f6ae.svg \
-		smileys/TwitterEmojiSVG/1f512.svg \
-		smileys/TwitterEmojiSVG/1f34d.svg \
-		smileys/TwitterEmojiSVG/1f31d.svg \
-		smileys/TwitterEmojiSVG/1f3c2.svg \
-		smileys/TwitterEmojiSVG/1f516.svg \
-		smileys/TwitterEmojiSVG/1f1fd.svg \
-		smileys/TwitterEmojiSVG/2797.svg \
-		smileys/TwitterEmojiSVG/1f482.svg \
-		smileys/TwitterEmojiSVG/1f452.svg \
-		smileys/TwitterEmojiSVG/1f64a.svg \
-		smileys/TwitterEmojiSVG/1f3c6.svg \
-		smileys/TwitterEmojiSVG/1f422.svg \
-		smileys/TwitterEmojiSVG/1f61a.svg \
-		smileys/TwitterEmojiSVG/2747.svg \
-		smileys/TwitterEmojiSVG/1f4fa.svg \
-		smileys/TwitterEmojiSVG/1f486.svg \
-		smileys/TwitterEmojiSVG/1f4ca.svg \
-		smileys/TwitterEmojiSVG/1f456.svg \
-		smileys/TwitterEmojiSVG/1f64e.svg \
-		smileys/TwitterEmojiSVG/2653.svg \
-		smileys/TwitterEmojiSVG/27bf.svg \
-		smileys/TwitterEmojiSVG/1f61e.svg \
-		smileys/TwitterEmojiSVG/1f426.svg \
-		smileys/TwitterEmojiSVG/1f6c3.svg \
-		smileys/TwitterEmojiSVG/1f392.svg \
-		smileys/TwitterEmojiSVG/1f362.svg \
-		smileys/TwitterEmojiSVG/1f4ce.svg \
-		smileys/TwitterEmojiSVG/1f332.svg \
-		smileys/TwitterEmojiSVG/1f302.svg \
-		smileys/TwitterEmojiSVG/1f53a.svg \
-		smileys/TwitterEmojiSVG/1f50a.svg \
-		smileys/TwitterEmojiSVG/1f366.svg \
-		smileys/TwitterEmojiSVG/1f3ea.svg \
-		smileys/TwitterEmojiSVG/1f3ba.svg \
-		smileys/TwitterEmojiSVG/1f306.svg \
-		smileys/TwitterEmojiSVG/1f50e.svg \
-		smileys/TwitterEmojiSVG/270b.svg \
-		smileys/TwitterEmojiSVG/1f1e6.svg \
-		smileys/TwitterEmojiSVG/1f47a.svg \
-		smileys/TwitterEmojiSVG/1f693.svg \
-		smileys/TwitterEmojiSVG/1f3ee.svg \
-		smileys/TwitterEmojiSVG/1f44a.svg \
-		smileys/TwitterEmojiSVG/1f3be.svg \
-		smileys/TwitterEmojiSVG/1f41a.svg \
-		smileys/TwitterEmojiSVG/1f633.svg \
-		smileys/TwitterEmojiSVG/1f603.svg \
-		smileys/TwitterEmojiSVG/270f.svg \
-		smileys/TwitterEmojiSVG/1f47e.svg \
-		smileys/TwitterEmojiSVG/267b.svg \
-		smileys/TwitterEmojiSVG/1f697.svg \
-		smileys/TwitterEmojiSVG/1f4e3.svg \
-		smileys/TwitterEmojiSVG/1f44e.svg \
-		smileys/TwitterEmojiSVG/264b.svg \
-		smileys/TwitterEmojiSVG/1f4b3.svg \
-		smileys/TwitterEmojiSVG/1f41e.svg \
-		smileys/TwitterEmojiSVG/1f637.svg \
-		smileys/TwitterEmojiSVG/1f6bb.svg \
-		smileys/TwitterEmojiSVG/1f607.svg \
-		smileys/TwitterEmojiSVG/1f38a.svg \
-		smileys/TwitterEmojiSVG/1f35a.svg \
-		smileys/TwitterEmojiSVG/267f.svg \
-		smileys/TwitterEmojiSVG/1f4e7.svg \
-		smileys/TwitterEmojiSVG/264f.svg \
-		smileys/TwitterEmojiSVG/1f4b7.svg \
-		smileys/TwitterEmojiSVG/1f553.svg \
-		smileys/TwitterEmojiSVG/1f6bf.svg \
-		smileys/TwitterEmojiSVG/1f523.svg \
-		smileys/TwitterEmojiSVG/1f38e.svg \
-		smileys/TwitterEmojiSVG/1f35e.svg \
-		smileys/TwitterEmojiSVG/1f5fb.svg \
-		smileys/TwitterEmojiSVG/1f557.svg \
-		smileys/TwitterEmojiSVG/2754.svg \
-		smileys/TwitterEmojiSVG/1f3a3.svg \
-		smileys/TwitterEmojiSVG/1f527.svg \
-		smileys/TwitterEmojiSVG/1f493.svg \
-		smileys/TwitterEmojiSVG/1f68b.svg \
-		smileys/TwitterEmojiSVG/1f23a.svg \
-		smileys/TwitterEmojiSVG/1f5ff.svg \
-		smileys/TwitterEmojiSVG/1f463.svg \
-		smileys/TwitterEmojiSVG/2660.svg \
-		smileys/TwitterEmojiSVG/1f433.svg \
-		smileys/TwitterEmojiSVG/1f62b.svg \
-		smileys/TwitterEmojiSVG/1f3a7.svg \
-		smileys/TwitterEmojiSVG/1f403.svg \
-		smileys/TwitterEmojiSVG/2600.svg \
-		smileys/TwitterEmojiSVG/2728.svg \
-		smileys/TwitterEmojiSVG/1f6a0.svg \
-		smileys/TwitterEmojiSVG/1f497.svg \
-		smileys/TwitterEmojiSVG/1f68f.svg \
-		smileys/TwitterEmojiSVG/1f4db.svg \
-		smileys/TwitterEmojiSVG/1f467.svg \
-		smileys/TwitterEmojiSVG/1f4ab.svg \
-		smileys/TwitterEmojiSVG/1f62f.svg \
-		smileys/TwitterEmojiSVG/1f437.svg \
-		smileys/TwitterEmojiSVG/1f407.svg \
-		smileys/TwitterEmojiSVG/1f6a4.svg \
-		smileys/TwitterEmojiSVG/1f373.svg \
-		smileys/TwitterEmojiSVG/1f4df.svg \
-		smileys/TwitterEmojiSVG/1f343.svg \
-		smileys/TwitterEmojiSVG/2668.svg \
-		smileys/TwitterEmojiSVG/1f4af.svg \
-		smileys/TwitterEmojiSVG/1f313.svg \
-		smileys/TwitterEmojiSVG/1f51b.svg \
-		smileys/TwitterEmojiSVG/1f6a8.svg \
-		smileys/TwitterEmojiSVG/1f17e.svg \
-		smileys/TwitterEmojiSVG/1f1f3.svg \
-		smileys/TwitterEmojiSVG/1f377.svg \
-		smileys/TwitterEmojiSVG/1f347.svg \
-		smileys/TwitterEmojiSVG/1f317.svg \
-		smileys/TwitterEmojiSVG/1f640.svg \
-		smileys/TwitterEmojiSVG/274c.svg \
-		smileys/TwitterEmojiSVG/1f610.svg \
-		smileys/TwitterEmojiSVG/1f51f.svg \
-		smileys/TwitterEmojiSVG/2935.svg \
-		smileys/TwitterEmojiSVG/1f1f7.svg \
-		smileys/TwitterEmojiSVG/1f48b.svg \
-		smileys/TwitterEmojiSVG/1f4f0.svg \
-		smileys/TwitterEmojiSVG/1f45b.svg \
-		smileys/TwitterEmojiSVG/1f4c0.svg \
-		smileys/TwitterEmojiSVG/1f42b.svg \
-		smileys/TwitterEmojiSVG/1f614.svg \
-		smileys/TwitterEmojiSVG/1f48f.svg \
-		smileys/TwitterEmojiSVG/1f4f4.svg \
-		smileys/TwitterEmojiSVG/1f45f.svg \
-		smileys/TwitterEmojiSVG/1f4c4.svg \
-		smileys/TwitterEmojiSVG/1f42f.svg \
-		smileys/TwitterEmojiSVG/1f648.svg \
-		smileys/TwitterEmojiSVG/1f560.svg \
-		smileys/TwitterEmojiSVG/1f618.svg \
-		smileys/TwitterEmojiSVG/1f530.svg \
-		smileys/TwitterEmojiSVG/1f193.svg \
-		smileys/TwitterEmojiSVG/1f500.svg \
-		smileys/TwitterEmojiSVG/1f36b.svg \
-		smileys/TwitterEmojiSVG/26f5.svg \
-		smileys/TwitterEmojiSVG/1f33b.svg \
-		smileys/TwitterEmojiSVG/1f3e0.svg \
-		smileys/TwitterEmojiSVG/1f4c8.svg \
-		smileys/TwitterEmojiSVG/26c5.svg \
-		smileys/TwitterEmojiSVG/1f30b.svg \
-		smileys/TwitterEmojiSVG/1f564.svg \
-		smileys/TwitterEmojiSVG/1f3b0.svg \
-		smileys/TwitterEmojiSVG/1f534.svg \
-		smileys/TwitterEmojiSVG/1f197.svg \
-		smileys/TwitterEmojiSVG/1f504.svg \
-		smileys/TwitterEmojiSVG/1f1eb.svg \
-		smileys/TwitterEmojiSVG/1f36f.svg \
-		smileys/TwitterEmojiSVG/1f470.svg \
-		smileys/TwitterEmojiSVG/1f33f.svg \
-		smileys/TwitterEmojiSVG/1f3e4.svg \
-		smileys/TwitterEmojiSVG/1f440.svg \
-		smileys/TwitterEmojiSVG/1f30f.svg \
-		smileys/TwitterEmojiSVG/1f3b4.svg \
-		smileys/TwitterEmojiSVG/1f410.svg \
-		smileys/TwitterEmojiSVG/1f538.svg \
-		smileys/TwitterEmojiSVG/1f508.svg \
-		smileys/TwitterEmojiSVG/2705.svg \
-		smileys/TwitterEmojiSVG/1f1ef.svg \
-		smileys/TwitterEmojiSVG/1f69c.svg \
-		smileys/TwitterEmojiSVG/1f474.svg \
-		smileys/TwitterEmojiSVG/1f3e8.svg \
-		smileys/TwitterEmojiSVG/1f444.svg \
-		smileys/TwitterEmojiSVG/1f63c.svg \
-		smileys/TwitterEmojiSVG/1f3b8.svg \
-		smileys/TwitterEmojiSVG/1f414.svg \
-		smileys/TwitterEmojiSVG/1f60c.svg \
-		smileys/TwitterEmojiSVG/2611.svg \
-		smileys/TwitterEmojiSVG/1f6b1.svg \
-		smileys/TwitterEmojiSVG/2709.svg \
-		smileys/TwitterEmojiSVG/1f380.svg \
-		smileys/TwitterEmojiSVG/1f4ec.svg \
-		smileys/TwitterEmojiSVG/1f478.svg \
-		smileys/TwitterEmojiSVG/1f350.svg \
-		smileys/TwitterEmojiSVG/1f4bc.svg \
-		smileys/TwitterEmojiSVG/1f320.svg \
-		smileys/TwitterEmojiSVG/1f448.svg \
-		smileys/TwitterEmojiSVG/1f418.svg \
-		smileys/TwitterEmojiSVG/2615.svg \
-		smileys/TwitterEmojiSVG/1f6b5.svg \
-		smileys/TwitterEmojiSVG/1f0cf.svg \
-		smileys/TwitterEmojiSVG/1f384.svg \
-		smileys/TwitterEmojiSVG/1f354.svg \
-		smileys/TwitterEmojiSVG/26bd.svg \
-		smileys/TwitterEmojiSVG/1f55c.svg \
-		smileys/TwitterEmojiSVG/2649.svg \
-		smileys/TwitterEmojiSVG/1f52c.svg \
-		smileys/TwitterEmojiSVG/1f6b9.svg \
-		smileys/TwitterEmojiSVG/1f388.svg \
-		smileys/TwitterEmojiSVG/1f358.svg \
-		smileys/TwitterEmojiSVG/1f681.svg \
-		smileys/TwitterEmojiSVG/1f3ac.svg \
-		smileys/TwitterEmojiSVG/1f621.svg \
-		smileys/TwitterEmojiSVG/1f49c.svg \
-		smileys/TwitterEmojiSVG/1f46c.svg \
-		smileys/TwitterEmojiSVG/1f685.svg \
-		smileys/TwitterEmojiSVG/1f234.svg \
-		smileys/TwitterEmojiSVG/1f4d1.svg \
-		smileys/TwitterEmojiSVG/1f43c.svg \
-		smileys/TwitterEmojiSVG/1f4a1.svg \
-		smileys/TwitterEmojiSVG/1f40c.svg \
-		smileys/TwitterEmojiSVG/1f625.svg \
-		smileys/TwitterEmojiSVG/1f170.svg \
-		smileys/TwitterEmojiSVG/1f689.svg \
-		smileys/TwitterEmojiSVG/1f238.svg \
-		smileys/TwitterEmojiSVG/1f4d5.svg \
-		smileys/TwitterEmojiSVG/1f4a5.svg \
-		smileys/TwitterEmojiSVG/1f629.svg \
-		smileys/TwitterEmojiSVG/1f1ee-1f1f9.svg \
-		smileys/TwitterEmojiSVG/1f6ad.svg \
-		smileys/TwitterEmojiSVG/1f511.svg \
-		smileys/TwitterEmojiSVG/1f37c.svg \
-		smileys/TwitterEmojiSVG/1f34c.svg \
-		smileys/TwitterEmojiSVG/1f4d9.svg \
-		smileys/TwitterEmojiSVG/1f31c.svg \
-		smileys/TwitterEmojiSVG/1f4a9.svg \
-		smileys/TwitterEmojiSVG/1f3c1.svg \
-		smileys/TwitterEmojiSVG/1f515.svg \
-		smileys/TwitterEmojiSVG/2712.svg \
-		smileys/TwitterEmojiSVG/1f1fc.svg \
-		smileys/TwitterEmojiSVG/2796.svg \
-		smileys/TwitterEmojiSVG/1f481.svg \
-		smileys/TwitterEmojiSVG/1f451.svg \
-		smileys/TwitterEmojiSVG/1f421.svg \
-		smileys/TwitterEmojiSVG/1f519.svg \
-		smileys/TwitterEmojiSVG/2716.svg \
-		smileys/TwitterEmojiSVG/1f485.svg \
-		smileys/TwitterEmojiSVG/1f455.svg \
-		smileys/TwitterEmojiSVG/1f64d.svg \
-		smileys/TwitterEmojiSVG/1f004.svg \
-		smileys/TwitterEmojiSVG/2652.svg \
-		smileys/TwitterEmojiSVG/1f3c9.svg \
-		smileys/TwitterEmojiSVG/1f425.svg \
-		smileys/TwitterEmojiSVG/1f61d.svg \
-		smileys/TwitterEmojiSVG/1f6c2.svg \
-		smileys/TwitterEmojiSVG/1f391.svg \
-		smileys/TwitterEmojiSVG/26fa.svg \
-		smileys/TwitterEmojiSVG/1f361.svg \
-		smileys/TwitterEmojiSVG/1f489.svg \
-		smileys/TwitterEmojiSVG/1f4cd.svg \
-		smileys/TwitterEmojiSVG/1f331.svg \
-		smileys/TwitterEmojiSVG/1f459.svg \
-		smileys/TwitterEmojiSVG/1f301.svg \
-		smileys/TwitterEmojiSVG/1f429.svg \
-		smileys/TwitterEmojiSVG/1f365.svg \
-		smileys/TwitterEmojiSVG/26ce.svg \
-		smileys/TwitterEmojiSVG/1f335.svg \
-		smileys/TwitterEmojiSVG/1f305.svg \
-		smileys/TwitterEmojiSVG/1f53d.svg \
-		smileys/TwitterEmojiSVG/1f50d.svg \
-		smileys/TwitterEmojiSVG/270a.svg \
-		smileys/TwitterEmojiSVG/1f369.svg \
-		smileys/TwitterEmojiSVG/1f692.svg \
-		smileys/TwitterEmojiSVG/1f3ed.svg \
-		smileys/TwitterEmojiSVG/1f339.svg \
-		smileys/TwitterEmojiSVG/1f3bd.svg \
-		smileys/TwitterEmojiSVG/1f632.svg \
-		smileys/TwitterEmojiSVG/1f309.svg \
-		smileys/TwitterEmojiSVG/1f602.svg \
-		smileys/TwitterEmojiSVG/1f1e9.svg \
-		smileys/TwitterEmojiSVG/1f47d.svg \
-		smileys/TwitterEmojiSVG/1f696.svg \
-		smileys/TwitterEmojiSVG/1f4e2.svg \
-		smileys/TwitterEmojiSVG/1f44d.svg \
-		smileys/TwitterEmojiSVG/264a.svg \
-		smileys/TwitterEmojiSVG/3299.svg \
-		smileys/TwitterEmojiSVG/1f4b2.svg \
-		smileys/TwitterEmojiSVG/1f41d.svg \
-		smileys/TwitterEmojiSVG/1f636.svg \
-		smileys/TwitterEmojiSVG/1f6ba.svg \
-		smileys/TwitterEmojiSVG/1f606.svg \
-		smileys/TwitterEmojiSVG/1f4e6.svg \
-		smileys/TwitterEmojiSVG/264e.svg \
-		smileys/TwitterEmojiSVG/1f4b6.svg \
-		smileys/TwitterEmojiSVG/1f552.svg \
-		smileys/TwitterEmojiSVG/1f6be.svg \
-		smileys/TwitterEmojiSVG/1f522.svg \
-		smileys/TwitterEmojiSVG/1f38d.svg \
-		smileys/TwitterEmojiSVG/1f35d.svg \
-		smileys/TwitterEmojiSVG/1f556.svg \
-		smileys/TwitterEmojiSVG/2753.svg \
-		smileys/TwitterEmojiSVG/1f3a2.svg \
-		smileys/TwitterEmojiSVG/1f526.svg \
-		smileys/TwitterEmojiSVG/1f492.svg \
-		smileys/TwitterEmojiSVG/1f68a.svg \
-		smileys/TwitterEmojiSVG/1f5fe.svg \
-		smileys/TwitterEmojiSVG/1f462.svg \
-		smileys/TwitterEmojiSVG/1f62a.svg \
-		smileys/TwitterEmojiSVG/1f432.svg \
-		smileys/TwitterEmojiSVG/2757.svg \
-		smileys/TwitterEmojiSVG/1f3a6.svg \
-		smileys/TwitterEmojiSVG/1f402.svg \
-		smileys/TwitterEmojiSVG/1f496.svg \
-		smileys/TwitterEmojiSVG/2693.svg \
-		smileys/TwitterEmojiSVG/1f68e.svg \
-		smileys/TwitterEmojiSVG/1f4da.svg \
-		smileys/TwitterEmojiSVG/1f466.svg \
-		smileys/TwitterEmojiSVG/2663.svg \
-		smileys/TwitterEmojiSVG/1f4aa.svg \
-		smileys/TwitterEmojiSVG/1f436.svg \
-		smileys/TwitterEmojiSVG/1f62e.svg \
-		smileys/TwitterEmojiSVG/1f406.svg \
-		smileys/TwitterEmojiSVG/1f6a3.svg \
-		smileys/TwitterEmojiSVG/1f1ec-1f1e7.svg \
-		smileys/TwitterEmojiSVG/1f372.svg \
-		smileys/TwitterEmojiSVG/1f4de.svg \
-		smileys/TwitterEmojiSVG/1f342.svg \
-		smileys/TwitterEmojiSVG/1f4ae.svg \
-		smileys/TwitterEmojiSVG/26ab.svg \
-		smileys/TwitterEmojiSVG/1f312.svg \
-		smileys/TwitterEmojiSVG/1f51a.svg \
-		smileys/TwitterEmojiSVG/1f6a7.svg \
-		smileys/TwitterEmojiSVG/1f1f2.svg \
-		smileys/TwitterEmojiSVG/1f376.svg \
-		smileys/TwitterEmojiSVG/1f346.svg \
 		smileys/TwitterEmojiSVG/1f3ca.svg \
 		smileys/TwitterEmojiSVG/1f316.svg \
-		smileys/TwitterEmojiSVG/27b0.svg \
 		smileys/TwitterEmojiSVG/1f51e.svg \
-		smileys/TwitterEmojiSVG/2934.svg \
+		smileys/TwitterEmojiSVG/2796.svg \
 		smileys/TwitterEmojiSVG/1f1f6.svg \
 		smileys/TwitterEmojiSVG/1f48a.svg \
 		smileys/TwitterEmojiSVG/1f45a.svg \
 		smileys/TwitterEmojiSVG/1f42a.svg \
 		smileys/TwitterEmojiSVG/1f613.svg \
+		smileys/TwitterEmojiSVG/2652.svg \
 		smileys/TwitterEmojiSVG/1f48e.svg \
-		smileys/TwitterEmojiSVG/1f4f3.svg \
 		smileys/TwitterEmojiSVG/1f45e.svg \
-		smileys/TwitterEmojiSVG/1f4c3.svg \
 		smileys/TwitterEmojiSVG/1f42e.svg \
 		smileys/TwitterEmojiSVG/1f647.svg \
+		smileys/TwitterEmojiSVG/1f4d3.svg \
 		smileys/TwitterEmojiSVG/1f617.svg \
+		smileys/TwitterEmojiSVG/1f4a3.svg \
+		smileys/TwitterEmojiSVG/26fa.svg \
 		smileys/TwitterEmojiSVG/1f192.svg \
-		smileys/TwitterEmojiSVG/1f1ea-1f1f8.svg \
 		smileys/TwitterEmojiSVG/1f36a.svg \
-		smileys/TwitterEmojiSVG/1f4f7.svg \
 		smileys/TwitterEmojiSVG/1f33a.svg \
-		smileys/TwitterEmojiSVG/1f4c7.svg \
-		smileys/TwitterEmojiSVG/26c4.svg \
 		smileys/TwitterEmojiSVG/1f30a.svg \
 		smileys/TwitterEmojiSVG/1f563.svg \
+		smileys/TwitterEmojiSVG/1f4d7.svg \
 		smileys/TwitterEmojiSVG/1f533.svg \
+		smileys/TwitterEmojiSVG/1f4a7.svg \
 		smileys/TwitterEmojiSVG/1f196.svg \
 		smileys/TwitterEmojiSVG/1f503.svg \
-		smileys/TwitterEmojiSVG/1f1ef-1f1f5.svg \
+		smileys/TwitterEmojiSVG/26ce.svg \
 		smileys/TwitterEmojiSVG/1f1ea.svg \
 		smileys/TwitterEmojiSVG/1f36e.svg \
 		smileys/TwitterEmojiSVG/1f33e.svg \
 		smileys/TwitterEmojiSVG/1f3e3.svg \
 		smileys/TwitterEmojiSVG/1f30e.svg \
 		smileys/TwitterEmojiSVG/1f567.svg \
-		smileys/TwitterEmojiSVG/2764.svg \
 		smileys/TwitterEmojiSVG/1f3b3.svg \
 		smileys/TwitterEmojiSVG/1f537.svg \
-		smileys/TwitterEmojiSVG/2734.svg \
 		smileys/TwitterEmojiSVG/1f507.svg \
 		smileys/TwitterEmojiSVG/1f1ee.svg \
 		smileys/TwitterEmojiSVG/1f69b.svg \
 		smileys/TwitterEmojiSVG/1f473.svg \
 		smileys/TwitterEmojiSVG/1f21a.svg \
 		smileys/TwitterEmojiSVG/1f3e7.svg \
-		smileys/TwitterEmojiSVG/1f63b.svg \
 		smileys/TwitterEmojiSVG/1f443.svg \
+		smileys/TwitterEmojiSVG/1f63b.svg \
 		smileys/TwitterEmojiSVG/1f3b7.svg \
 		smileys/TwitterEmojiSVG/1f413.svg \
 		smileys/TwitterEmojiSVG/1f60b.svg \
 		smileys/TwitterEmojiSVG/1f6b0.svg \
-		smileys/TwitterEmojiSVG/2708.svg \
+		smileys/TwitterEmojiSVG/264a.svg \
+		smileys/TwitterEmojiSVG/3299.svg \
 		smileys/TwitterEmojiSVG/1f69f.svg \
 		smileys/TwitterEmojiSVG/1f4eb.svg \
 		smileys/TwitterEmojiSVG/1f477.svg \
-		smileys/TwitterEmojiSVG/1f4bb.svg \
-		smileys/TwitterEmojiSVG/1f447.svg \
 		smileys/TwitterEmojiSVG/1f63f.svg \
+		smileys/TwitterEmojiSVG/1f447.svg \
+		smileys/TwitterEmojiSVG/1f4cb.svg \
 		smileys/TwitterEmojiSVG/1f417.svg \
 		smileys/TwitterEmojiSVG/1f60f.svg \
-		smileys/TwitterEmojiSVG/2614.svg \
 		smileys/TwitterEmojiSVG/1f6b4.svg \
+		smileys/TwitterEmojiSVG/264e.svg \
 		smileys/TwitterEmojiSVG/1f383.svg \
 		smileys/TwitterEmojiSVG/1f4ef.svg \
 		smileys/TwitterEmojiSVG/1f353.svg \
-		smileys/TwitterEmojiSVG/1f4bf.svg \
 		smileys/TwitterEmojiSVG/1f55b.svg \
-		smileys/TwitterEmojiSVG/2648.svg \
+		smileys/TwitterEmojiSVG/1f4cf.svg \
 		smileys/TwitterEmojiSVG/1f52b.svg \
 		smileys/TwitterEmojiSVG/1f6b8.svg \
 		smileys/TwitterEmojiSVG/1f18e.svg \
+		smileys/TwitterEmojiSVG/1f1ec-1f1e7.svg \
 		smileys/TwitterEmojiSVG/1f387.svg \
 		smileys/TwitterEmojiSVG/1f357.svg \
 		smileys/TwitterEmojiSVG/1f680.svg \
@@ -1531,51 +884,56 @@ qrc_smileys.cpp: smileys/smileys.qrc \
 		smileys/TwitterEmojiSVG/1f3ab.svg \
 		smileys/TwitterEmojiSVG/1f620.svg \
 		smileys/TwitterEmojiSVG/1f52f.svg \
+		smileys/TwitterEmojiSVG/2747.svg \
 		smileys/TwitterEmojiSVG/1f49b.svg \
 		smileys/TwitterEmojiSVG/1f46b.svg \
 		smileys/TwitterEmojiSVG/1f684.svg \
 		smileys/TwitterEmojiSVG/1f233.svg \
-		smileys/TwitterEmojiSVG/1f4d0.svg \
 		smileys/TwitterEmojiSVG/1f43b.svg \
-		smileys/TwitterEmojiSVG/1f4a0.svg \
 		smileys/TwitterEmojiSVG/1f3af.svg \
-		smileys/TwitterEmojiSVG/1f40b.svg \
+		smileys/TwitterEmojiSVG/1f4e0.svg \
 		smileys/TwitterEmojiSVG/1f624.svg \
+		smileys/TwitterEmojiSVG/1f40b.svg \
+		smileys/TwitterEmojiSVG/1f4b0.svg \
+		smileys/TwitterEmojiSVG/2693.svg \
+		smileys/TwitterEmojiSVG/2663.svg \
 		smileys/TwitterEmojiSVG/1f49f.svg \
 		smileys/TwitterEmojiSVG/1f46f.svg \
 		smileys/TwitterEmojiSVG/1f688.svg \
 		smileys/TwitterEmojiSVG/1f237.svg \
-		smileys/TwitterEmojiSVG/1f4d4.svg \
-		smileys/TwitterEmojiSVG/1f4a4.svg \
-		smileys/TwitterEmojiSVG/26a1.svg \
+		smileys/TwitterEmojiSVG/1f4e4.svg \
 		smileys/TwitterEmojiSVG/1f40f.svg \
 		smileys/TwitterEmojiSVG/1f628.svg \
+		smileys/TwitterEmojiSVG/1f4b4.svg \
 		smileys/TwitterEmojiSVG/1f6ac.svg \
 		smileys/TwitterEmojiSVG/1f510.svg \
 		smileys/TwitterEmojiSVG/1f37b.svg \
+		smileys/TwitterEmojiSVG/26ab.svg \
 		smileys/TwitterEmojiSVG/1f34b.svg \
-		smileys/TwitterEmojiSVG/1f4d8.svg \
 		smileys/TwitterEmojiSVG/1f3f0.svg \
 		smileys/TwitterEmojiSVG/1f31b.svg \
+		smileys/TwitterEmojiSVG/1f4e8.svg \
 		smileys/TwitterEmojiSVG/1f3c0.svg \
-		smileys/TwitterEmojiSVG/1f4a8.svg \
+		smileys/TwitterEmojiSVG/1f4b8.svg \
 		smileys/TwitterEmojiSVG/1f514.svg \
+		smileys/TwitterEmojiSVG/1f1ea-1f1f8.svg \
 		smileys/TwitterEmojiSVG/1f1fb.svg \
-		smileys/TwitterEmojiSVG/2795.svg \
-		smileys/TwitterEmojiSVG/1f34f.svg \
+		smileys/TwitterEmojiSVG/270b.svg \
 		smileys/TwitterEmojiSVG/1f480.svg \
-		smileys/TwitterEmojiSVG/1f31f.svg \
+		smileys/TwitterEmojiSVG/1f34f.svg \
+		smileys/TwitterEmojiSVG/27b0.svg \
+		smileys/TwitterEmojiSVG/2934.svg \
 		smileys/TwitterEmojiSVG/1f450.svg \
-		smileys/TwitterEmojiSVG/1f1eb-1f1f7.svg \
+		smileys/TwitterEmojiSVG/1f31f.svg \
 		smileys/TwitterEmojiSVG/1f3c4.svg \
 		smileys/TwitterEmojiSVG/1f420.svg \
-		smileys/TwitterEmojiSVG/emoticons.xml \
 		smileys/TwitterEmojiSVG/1f518.svg \
+		smileys/TwitterEmojiSVG/1f1ef-1f1f5.svg \
 		smileys/TwitterEmojiSVG/1f1ff.svg \
+		smileys/TwitterEmojiSVG/270f.svg \
 		smileys/TwitterEmojiSVG/1f484.svg \
-		smileys/TwitterEmojiSVG/1f64c.svg \
 		smileys/TwitterEmojiSVG/1f454.svg \
-		smileys/TwitterEmojiSVG/2651.svg \
+		smileys/TwitterEmojiSVG/1f64c.svg \
 		smileys/TwitterEmojiSVG/1f3c8.svg \
 		smileys/TwitterEmojiSVG/1f424.svg \
 		smileys/TwitterEmojiSVG/1f61c.svg \
@@ -1585,54 +943,56 @@ qrc_smileys.cpp: smileys/smileys.qrc \
 		smileys/TwitterEmojiSVG/1f488.svg \
 		smileys/TwitterEmojiSVG/1f360.svg \
 		smileys/TwitterEmojiSVG/1f22f.svg \
-		smileys/TwitterEmojiSVG/1f4cc.svg \
-		smileys/TwitterEmojiSVG/1f458.svg \
 		smileys/TwitterEmojiSVG/1f330.svg \
-		smileys/TwitterEmojiSVG/1f428.svg \
+		smileys/TwitterEmojiSVG/1f458.svg \
+		smileys/TwitterEmojiSVG/1f4dc.svg \
 		smileys/TwitterEmojiSVG/1f300.svg \
+		smileys/TwitterEmojiSVG/1f428.svg \
+		smileys/TwitterEmojiSVG/1f4ac.svg \
 		smileys/TwitterEmojiSVG/1f6c5.svg \
-		smileys/TwitterEmojiSVG/26fd.svg \
+		smileys/TwitterEmojiSVG/26c4.svg \
 		smileys/TwitterEmojiSVG/1f364.svg \
-		smileys/TwitterEmojiSVG/1f1f7-1f1fa.svg \
 		smileys/TwitterEmojiSVG/1f334.svg \
 		smileys/TwitterEmojiSVG/1f304.svg \
 		smileys/TwitterEmojiSVG/1f53c.svg \
 		smileys/TwitterEmojiSVG/1f50c.svg \
+		smileys/TwitterEmojiSVG/2754.svg \
 		smileys/TwitterEmojiSVG/1f368.svg \
 		smileys/TwitterEmojiSVG/1f691.svg \
 		smileys/TwitterEmojiSVG/1f3ec.svg \
 		smileys/TwitterEmojiSVG/1f338.svg \
 		smileys/TwitterEmojiSVG/1f3bc.svg \
-		smileys/TwitterEmojiSVG/1f631.svg \
 		smileys/TwitterEmojiSVG/1f308.svg \
+		smileys/TwitterEmojiSVG/1f631.svg \
 		smileys/TwitterEmojiSVG/1f601.svg \
+		smileys/TwitterEmojiSVG/2728.svg \
 		smileys/TwitterEmojiSVG/1f1e8.svg \
 		smileys/TwitterEmojiSVG/1f47c.svg \
 		smileys/TwitterEmojiSVG/1f695.svg \
-		smileys/TwitterEmojiSVG/1f4e1.svg \
 		smileys/TwitterEmojiSVG/1f44c.svg \
-		smileys/TwitterEmojiSVG/1f4b1.svg \
-		smileys/TwitterEmojiSVG/1f41c.svg \
+		smileys/TwitterEmojiSVG/1f4f1.svg \
 		smileys/TwitterEmojiSVG/1f635.svg \
+		smileys/TwitterEmojiSVG/1f41c.svg \
+		smileys/TwitterEmojiSVG/1f4c1.svg \
 		smileys/TwitterEmojiSVG/1f605.svg \
 		smileys/TwitterEmojiSVG/1f699.svg \
-		smileys/TwitterEmojiSVG/1f4e5.svg \
-		smileys/TwitterEmojiSVG/264d.svg \
-		smileys/TwitterEmojiSVG/1f4b5.svg \
+		smileys/TwitterEmojiSVG/2614.svg \
+		smileys/TwitterEmojiSVG/1f4f5.svg \
 		smileys/TwitterEmojiSVG/1f639.svg \
 		smileys/TwitterEmojiSVG/1f551.svg \
-		smileys/TwitterEmojiSVG/261d.svg \
+		smileys/TwitterEmojiSVG/1f4c5.svg \
 		smileys/TwitterEmojiSVG/1f6bd.svg \
 		smileys/TwitterEmojiSVG/1f609.svg \
 		smileys/TwitterEmojiSVG/1f521.svg \
 		smileys/TwitterEmojiSVG/1f38c.svg \
+		smileys/TwitterEmojiSVG/2648.svg \
 		smileys/TwitterEmojiSVG/1f35c.svg \
-		smileys/TwitterEmojiSVG/1f4e9.svg \
-		smileys/TwitterEmojiSVG/1f4b9.svg \
+		smileys/TwitterEmojiSVG/1f4f9.svg \
 		smileys/TwitterEmojiSVG/1f555.svg \
+		smileys/TwitterEmojiSVG/1f4c9.svg \
 		smileys/TwitterEmojiSVG/1f3a1.svg \
 		smileys/TwitterEmojiSVG/1f525.svg \
-		smileys/TwitterEmojiSVG/3030.svg \
+		smileys/TwitterEmojiSVG/274c.svg \
 		smileys/TwitterEmojiSVG/1f491.svg \
 		smileys/TwitterEmojiSVG/1f5fd.svg \
 		smileys/TwitterEmojiSVG/1f461.svg \
@@ -1651,15 +1011,13 @@ qrc_smileys.cpp: smileys/smileys.qrc \
 		smileys/TwitterEmojiSVG/1f6a2.svg \
 		smileys/TwitterEmojiSVG/1f499.svg \
 		smileys/TwitterEmojiSVG/1f371.svg \
-		smileys/TwitterEmojiSVG/1f4dd.svg \
-		smileys/TwitterEmojiSVG/1f469.svg \
+		smileys/TwitterEmojiSVG/26a1.svg \
+		smileys/TwitterEmojiSVG/emoticons.xml \
 		smileys/TwitterEmojiSVG/1f341.svg \
-		smileys/TwitterEmojiSVG/2666.svg \
-		smileys/TwitterEmojiSVG/1f4ad.svg \
-		smileys/TwitterEmojiSVG/26aa.svg \
-		smileys/TwitterEmojiSVG/1f1f0-1f1f7.svg \
-		smileys/TwitterEmojiSVG/1f439.svg \
+		smileys/TwitterEmojiSVG/1f469.svg \
 		smileys/TwitterEmojiSVG/1f311.svg \
+		smileys/TwitterEmojiSVG/1f439.svg \
+		smileys/TwitterEmojiSVG/1f4bd.svg \
 		smileys/TwitterEmojiSVG/1f409.svg \
 		smileys/TwitterEmojiSVG/1f6a6.svg \
 		smileys/TwitterEmojiSVG/1f1f1.svg \
@@ -1667,44 +1025,686 @@ qrc_smileys.cpp: smileys/smileys.qrc \
 		smileys/TwitterEmojiSVG/1f345.svg \
 		smileys/TwitterEmojiSVG/1f315.svg \
 		smileys/TwitterEmojiSVG/1f51d.svg \
-		smileys/TwitterEmojiSVG/1f1e8-1f1f3.svg \
+		smileys/TwitterEmojiSVG/2795.svg \
 		smileys/TwitterEmojiSVG/1f1f5.svg \
 		smileys/TwitterEmojiSVG/1f379.svg \
 		smileys/TwitterEmojiSVG/1f251.svg \
+		smileys/TwitterEmojiSVG/2705.svg \
 		smileys/TwitterEmojiSVG/1f349.svg \
 		smileys/TwitterEmojiSVG/1f319.svg \
-		smileys/TwitterEmojiSVG/274e.svg \
 		smileys/TwitterEmojiSVG/1f612.svg \
+		smileys/TwitterEmojiSVG/2651.svg \
 		smileys/TwitterEmojiSVG/1f1f9.svg \
 		smileys/TwitterEmojiSVG/1f48d.svg \
-		smileys/TwitterEmojiSVG/1f4f2.svg \
+		smileys/TwitterEmojiSVG/2709.svg \
 		smileys/TwitterEmojiSVG/1f45d.svg \
-		smileys/TwitterEmojiSVG/1f4c2.svg \
-		smileys/TwitterEmojiSVG/1f42d.svg \
 		smileys/TwitterEmojiSVG/1f646.svg \
+		smileys/TwitterEmojiSVG/1f42d.svg \
+		smileys/TwitterEmojiSVG/1f4d2.svg \
 		smileys/TwitterEmojiSVG/1f616.svg \
+		smileys/TwitterEmojiSVG/1f4a2.svg \
 		smileys/TwitterEmojiSVG/1f191.svg \
-		smileys/TwitterEmojiSVG/1f4f6.svg \
-		smileys/TwitterEmojiSVG/26f3.svg \
-		smileys/TwitterEmojiSVG/1f4c6.svg \
 		smileys/TwitterEmojiSVG/1f562.svg \
-		smileys/krepa098/cool.png \
-		smileys/krepa098/crying.png \
+		smileys/TwitterEmojiSVG/1f4d6.svg \
+		smileys/TwitterEmojiSVG/1f532.svg \
+		smileys/TwitterEmojiSVG/1f4a6.svg \
+		smileys/TwitterEmojiSVG/26fd.svg \
+		smileys/TwitterEmojiSVG/1f195.svg \
+		smileys/TwitterEmojiSVG/1f502.svg \
+		smileys/TwitterEmojiSVG/1f36d.svg \
+		smileys/TwitterEmojiSVG/1f33d.svg \
+		smileys/TwitterEmojiSVG/1f3e2.svg \
+		smileys/TwitterEmojiSVG/1f30d.svg \
+		smileys/TwitterEmojiSVG/1f566.svg \
+		smileys/TwitterEmojiSVG/1f3b2.svg \
+		smileys/TwitterEmojiSVG/1f536.svg \
+		smileys/TwitterEmojiSVG/1f199.svg \
+		smileys/TwitterEmojiSVG/1f506.svg \
+		smileys/TwitterEmojiSVG/1f1ed.svg \
+		smileys/TwitterEmojiSVG/1f69a.svg \
+		smileys/TwitterEmojiSVG/1f472.svg \
+		smileys/TwitterEmojiSVG/1f3e6.svg \
+		smileys/TwitterEmojiSVG/1f63a.svg \
+		smileys/TwitterEmojiSVG/1f442.svg \
+		smileys/TwitterEmojiSVG/1f3b6.svg \
+		smileys/TwitterEmojiSVG/1f60a.svg \
+		smileys/TwitterEmojiSVG/1f412.svg \
+		smileys/TwitterEmojiSVG/1f69e.svg \
+		smileys/TwitterEmojiSVG/1f4ea.svg \
+		smileys/TwitterEmojiSVG/1f476.svg \
+		smileys/TwitterEmojiSVG/1f446.svg \
+		smileys/TwitterEmojiSVG/1f63e.svg \
+		smileys/TwitterEmojiSVG/1f4ca.svg \
+		smileys/TwitterEmojiSVG/1f416.svg \
+		smileys/TwitterEmojiSVG/1f60e.svg \
+		smileys/TwitterEmojiSVG/1f6b3.svg \
+		smileys/TwitterEmojiSVG/264d.svg \
+		smileys/TwitterEmojiSVG/1f382.svg \
+		smileys/TwitterEmojiSVG/1f4ee.svg \
+		smileys/TwitterEmojiSVG/261d.svg \
+		smileys/TwitterEmojiSVG/1f352.svg \
+		smileys/TwitterEmojiSVG/1f55a.svg \
+		smileys/TwitterEmojiSVG/1f4ce.svg \
+		smileys/TwitterEmojiSVG/1f52a.svg \
+		smileys/TwitterEmojiSVG/1f6b7.svg \
+		smileys/TwitterEmojiSVG/1f386.svg \
+		smileys/TwitterEmojiSVG/2712.svg \
+		smileys/TwitterEmojiSVG/1f356.svg \
+		smileys/TwitterEmojiSVG/1f1f0-1f1f7.svg \
+		smileys/TwitterEmojiSVG/1f55e.svg \
+		smileys/TwitterEmojiSVG/1f3aa.svg \
+		smileys/TwitterEmojiSVG/1f52e.svg \
+		smileys/TwitterEmojiSVG/1f49a.svg \
+		smileys/TwitterEmojiSVG/2716.svg \
+		smileys/TwitterEmojiSVG/1f46a.svg \
+		smileys/TwitterEmojiSVG/1f683.svg \
+		smileys/TwitterEmojiSVG/1f232.svg \
+		smileys/TwitterEmojiSVG/1f43a.svg \
+		smileys/TwitterEmojiSVG/1f202.svg \
+		smileys/TwitterEmojiSVG/1f3ae.svg \
+		smileys/TwitterEmojiSVG/1f40a.svg \
+		smileys/TwitterEmojiSVG/1f623.svg \
+		smileys/TwitterEmojiSVG/1f1e8-1f1f3.svg \
+		smileys/TwitterEmojiSVG/1f49e.svg \
+		smileys/TwitterEmojiSVG/1f46e.svg \
+		smileys/TwitterEmojiSVG/1f687.svg \
+		smileys/TwitterEmojiSVG/1f236.svg \
+		smileys/TwitterEmojiSVG/1f43e.svg \
+		smileys/TwitterEmojiSVG/1f4e3.svg \
+		smileys/TwitterEmojiSVG/1f40e.svg \
+		smileys/TwitterEmojiSVG/1f627.svg \
+		smileys/TwitterEmojiSVG/1f4b3.svg \
+		smileys/TwitterEmojiSVG/1f6ab.svg \
+		smileys/TwitterEmojiSVG/2666.svg \
+		smileys/TwitterEmojiSVG/1f37a.svg \
+		smileys/TwitterEmojiSVG/26aa.svg \
+		smileys/TwitterEmojiSVG/1f34a.svg \
+		smileys/TwitterEmojiSVG/1f31a.svg \
+		smileys/TwitterEmojiSVG/1f4e7.svg \
+		smileys/TwitterEmojiSVG/1f4b7.svg \
+		smileys/TwitterEmojiSVG/1f6af.svg \
+		smileys/TwitterEmojiSVG/1f513.svg \
+		smileys/TwitterEmojiSVG/1f1fa.svg \
+		smileys/TwitterEmojiSVG/270a.svg \
+		smileys/TwitterEmojiSVG/1f34e.svg \
+		smileys/TwitterEmojiSVG/1f31e.svg \
+		smileys/TwitterEmojiSVG/1f3c3.svg \
+		smileys/TwitterEmojiSVG/1f517.svg \
+		smileys/TwitterEmojiSVG/1f1fe.svg \
+		smileys/TwitterEmojiSVG/1f483.svg \
+		smileys/TwitterEmojiSVG/1f64b.svg \
+		smileys/TwitterEmojiSVG/1f453.svg \
+		smileys/TwitterEmojiSVG/1f3c7.svg \
+		smileys/TwitterEmojiSVG/1f61b.svg \
+		smileys/TwitterEmojiSVG/1f423.svg \
+		smileys/TwitterEmojiSVG/1f6c0.svg \
+		smileys/TwitterEmojiSVG/1f4fb.svg \
+		smileys/TwitterEmojiSVG/1f487.svg \
+		smileys/TwitterEmojiSVG/1f457.svg \
+		smileys/TwitterEmojiSVG/1f64f.svg \
+		smileys/TwitterEmojiSVG/1f4db.svg \
+		smileys/TwitterEmojiSVG/1f427.svg \
+		smileys/TwitterEmojiSVG/1f61f.svg \
+		smileys/TwitterEmojiSVG/1f4ab.svg \
+		smileys/TwitterEmojiSVG/1f6c4.svg \
+		smileys/TwitterEmojiSVG/1f19a.svg \
+		smileys/TwitterEmojiSVG/26f3.svg \
+		smileys/TwitterEmojiSVG/1f393.svg \
+		smileys/TwitterEmojiSVG/1f363.svg \
+		smileys/TwitterEmojiSVG/1f333.svg \
+		smileys/TwitterEmojiSVG/1f4df.svg \
+		smileys/TwitterEmojiSVG/1f303.svg \
+		smileys/TwitterEmojiSVG/1f53b.svg \
+		smileys/TwitterEmojiSVG/1f4af.svg \
+		smileys/TwitterEmojiSVG/1f50b.svg \
+		smileys/TwitterEmojiSVG/2753.svg \
+		smileys/TwitterEmojiSVG/1f367.svg \
+		smileys/TwitterEmojiSVG/1f690.svg \
+		smileys/TwitterEmojiSVG/1f3eb.svg \
+		smileys/TwitterEmojiSVG/1f337.svg \
+		smileys/TwitterEmojiSVG/1f3bb.svg \
+		smileys/TwitterEmojiSVG/1f630.svg \
+		smileys/TwitterEmojiSVG/1f307.svg \
+		smileys/TwitterEmojiSVG/1f600.svg \
+		smileys/TwitterEmojiSVG/1f50f.svg \
+		smileys/TwitterEmojiSVG/2757.svg \
+		smileys/TwitterEmojiSVG/1f1e7.svg \
+		smileys/TwitterEmojiSVG/1f47b.svg \
+		smileys/TwitterEmojiSVG/1f694.svg \
+		smileys/TwitterEmojiSVG/1f3ef.svg \
+		smileys/TwitterEmojiSVG/1f44b.svg \
+		smileys/TwitterEmojiSVG/1f4f0.svg \
+		smileys/TwitterEmojiSVG/1f3bf.svg \
+		smileys/TwitterEmojiSVG/1f41b.svg \
+		smileys/TwitterEmojiSVG/1f634.svg \
+		smileys/TwitterEmojiSVG/1f4c0.svg \
+		smileys/TwitterEmojiSVG/1f604.svg \
+		smileys/TwitterEmojiSVG/1f47f.svg \
+		smileys/TwitterEmojiSVG/1f698.svg \
+		smileys/TwitterEmojiSVG/1f44f.svg \
+		smileys/TwitterEmojiSVG/1f4f4.svg \
+		smileys/TwitterEmojiSVG/1f41f.svg \
+		smileys/TwitterEmojiSVG/1f638.svg \
+		smileys/TwitterEmojiSVG/1f550.svg \
+		smileys/TwitterEmojiSVG/1f4c4.svg \
+		smileys/TwitterEmojiSVG/1f6bc.svg \
+		smileys/TwitterEmojiSVG/1f608.svg \
+		smileys/TwitterEmojiSVG/1f520.svg \
+		smileys/TwitterEmojiSVG/1f38b.svg \
+		smileys/TwitterEmojiSVG/1f35b.svg \
+		smileys/TwitterEmojiSVG/1f554.svg \
+		smileys/TwitterEmojiSVG/1f3a0.svg \
+		smileys/TwitterEmojiSVG/1f4c8.svg \
+		smileys/TwitterEmojiSVG/1f524.svg \
+		smileys/TwitterEmojiSVG/1f38f.svg \
+		smileys/TwitterEmojiSVG/1f35f.svg \
+		smileys/TwitterEmojiSVG/1f490.svg \
+		smileys/TwitterEmojiSVG/1f5fc.svg \
+		smileys/TwitterEmojiSVG/1f460.svg \
+		smileys/TwitterEmojiSVG/1f430.svg \
+		smileys/TwitterEmojiSVG/1f558.svg \
+		smileys/TwitterEmojiSVG/1f3a4.svg \
+		smileys/TwitterEmojiSVG/1f400.svg \
+		smileys/TwitterEmojiSVG/1f528.svg \
+		smileys/TwitterEmojiSVG/1f494.svg \
+		smileys/TwitterEmojiSVG/1f68c.svg \
+		smileys/TwitterEmojiSVG/1f464.svg \
+		smileys/TwitterEmojiSVG/1f434.svg \
+		smileys/TwitterEmojiSVG/1f62c.svg \
+		smileys/TwitterEmojiSVG/1f3a8.svg \
+		smileys/TwitterEmojiSVG/1f404.svg \
+		smileys/TwitterEmojiSVG/1f6a1.svg \
+		smileys/TwitterEmojiSVG/1f370.svg \
+		smileys/TwitterEmojiSVG/1f498.svg \
+		smileys/TwitterEmojiSVG/26a0.svg \
+		smileys/TwitterEmojiSVG/1f468.svg \
+		smileys/TwitterEmojiSVG/1f340.svg \
+		smileys/TwitterEmojiSVG/1f438.svg \
+		smileys/TwitterEmojiSVG/1f310.svg \
+		smileys/TwitterEmojiSVG/1f4bc.svg \
+		smileys/TwitterEmojiSVG/1f408.svg \
+		smileys/TwitterEmojiSVG/1f6a5.svg \
+		smileys/TwitterEmojiSVG/26d4.svg \
+		smileys/TwitterEmojiSVG/1f1f0.svg \
+		smileys/TwitterEmojiSVG/1f374.svg \
+		smileys/TwitterEmojiSVG/1f344.svg \
+		smileys/TwitterEmojiSVG/1f314.svg \
+		smileys/TwitterEmojiSVG/1f51c.svg \
+		smileys/TwitterEmojiSVG/1f6a9.svg \
+		smileys/TwitterEmojiSVG/1f17f.svg \
+		smileys/TwitterEmojiSVG/2764.svg \
+		smileys/TwitterEmojiSVG/2734.svg \
+		smileys/TwitterEmojiSVG/1f1f4.svg \
+		smileys/TwitterEmojiSVG/1f378.svg \
+		smileys/TwitterEmojiSVG/1f250.svg \
+		smileys/TwitterEmojiSVG/1f348.svg \
+		smileys/TwitterEmojiSVG/1f318.svg \
+		smileys/TwitterEmojiSVG/1f611.svg \
+		smileys/TwitterEmojiSVG/2650.svg \
+		smileys/TwitterEmojiSVG/1f1f8.svg \
+		smileys/TwitterEmojiSVG/1f48c.svg \
+		smileys/TwitterEmojiSVG/2708.svg \
+		smileys/TwitterEmojiSVG/1f45c.svg \
+		smileys/TwitterEmojiSVG/1f42c.svg \
+		smileys/TwitterEmojiSVG/1f645.svg \
+		smileys/TwitterEmojiSVG/1f4d1.svg \
+		smileys/TwitterEmojiSVG/1f615.svg \
+		smileys/TwitterEmojiSVG/1f4a1.svg \
+		smileys/TwitterEmojiSVG/1f649.svg \
+		smileys/TwitterEmojiSVG/1f561.svg \
+		smileys/TwitterEmojiSVG/1f4d5.svg \
+		smileys/TwitterEmojiSVG/1f619.svg \
+		smileys/TwitterEmojiSVG/1f531.svg \
+		smileys/TwitterEmojiSVG/1f4a5.svg \
+		smileys/TwitterEmojiSVG/1f194.svg \
+		smileys/TwitterEmojiSVG/1f501.svg \
+		smileys/TwitterEmojiSVG/1f36c.svg \
+		smileys/TwitterEmojiSVG/1f33c.svg \
+		smileys/TwitterEmojiSVG/1f595.svg \
+		smileys/TwitterEmojiSVG/1f3e1.svg \
+		smileys/TwitterEmojiSVG/1f30c.svg \
+		smileys/TwitterEmojiSVG/1f565.svg \
+		smileys/TwitterEmojiSVG/1f3b1.svg \
+		smileys/TwitterEmojiSVG/1f4d9.svg \
+		smileys/TwitterEmojiSVG/1f535.svg \
+		smileys/TwitterEmojiSVG/1f4a9.svg \
+		smileys/TwitterEmojiSVG/1f198.svg \
+		smileys/TwitterEmojiSVG/1f505.svg \
+		smileys/TwitterEmojiSVG/1f1ec.svg \
+		smileys/TwitterEmojiSVG/1f471.svg \
+		smileys/TwitterEmojiSVG/27a1.svg \
+		smileys/TwitterEmojiSVG/1f3e5.svg \
+		smileys/TwitterEmojiSVG/1f3b5.svg \
+		smileys/TwitterEmojiSVG/1f411.svg \
+		smileys/TwitterEmojiSVG/1f539.svg \
+		smileys/TwitterEmojiSVG/1f509.svg \
+		smileys/TwitterEmojiSVG/3297.svg \
+		smileys/TwitterEmojiSVG/1f69d.svg \
+		smileys/TwitterEmojiSVG/1f1eb-1f1f7.svg \
+		smileys/TwitterEmojiSVG/1f475.svg \
+		smileys/TwitterEmojiSVG/1f3e9.svg \
+		smileys/TwitterEmojiSVG/1f445.svg \
+		smileys/TwitterEmojiSVG/1f63d.svg \
+		smileys/TwitterEmojiSVG/1f3b9.svg \
+		smileys/TwitterEmojiSVG/1f415.svg \
+		smileys/TwitterEmojiSVG/1f60d.svg \
+		smileys/TwitterEmojiSVG/1f6b2.svg \
+		smileys/TwitterEmojiSVG/264c.svg \
+		smileys/TwitterEmojiSVG/1f381.svg \
+		smileys/TwitterEmojiSVG/1f4ed.svg \
+		smileys/TwitterEmojiSVG/1f479.svg \
+		smileys/TwitterEmojiSVG/1f351.svg \
+		smileys/TwitterEmojiSVG/1f449.svg \
+		smileys/TwitterEmojiSVG/1f4cd.svg \
+		smileys/TwitterEmojiSVG/1f419.svg \
+		smileys/TwitterEmojiSVG/1f6b6.svg \
+		smileys/TwitterEmojiSVG/1f385.svg \
+		smileys/TwitterEmojiSVG/1f355.svg \
+		smileys/TwitterEmojiSVG/1f55d.svg \
+		smileys/TwitterEmojiSVG/1f52d.svg \
+		smileys/TwitterEmojiSVG/1f1f7-1f1fa.svg \
+		smileys/TwitterEmojiSVG/1f389.svg \
+		smileys/TwitterEmojiSVG/1f359.svg \
+		smileys/TwitterEmojiSVG/1f682.svg \
+		smileys/TwitterEmojiSVG/1f201.svg \
+		smileys/TwitterEmojiSVG/1f3ad.svg \
+		smileys/TwitterEmojiSVG/1f622.svg \
+		smileys/TwitterEmojiSVG/1f1fa-1f1f8.svg \
+		smileys/TwitterEmojiSVG/1f49d.svg \
+		smileys/TwitterEmojiSVG/1f46d.svg \
+		smileys/TwitterEmojiSVG/1f686.svg \
+		smileys/TwitterEmojiSVG/1f235.svg \
+		smileys/TwitterEmojiSVG/2601.svg \
+		smileys/TwitterEmojiSVG/1f43d.svg \
+		smileys/TwitterEmojiSVG/1f4e2.svg \
+		smileys/TwitterEmojiSVG/1f40d.svg \
+		smileys/TwitterEmojiSVG/1f626.svg \
+		smileys/TwitterEmojiSVG/1f4b2.svg \
+		smileys/TwitterEmojiSVG/1f6aa.svg \
+		smileys/TwitterEmojiSVG/1f171.svg \
+		smileys/TwitterEmojiSVG/2665.svg \
+		smileys/TwitterEmojiSVG/1f239.svg \
+		smileys/TwitterEmojiSVG/1f4e6.svg \
+		smileys/TwitterEmojiSVG/1f4b6.svg \
+		smileys/TwitterEmojiSVG/1f6ae.svg \
+		smileys/TwitterEmojiSVG/1f512.svg \
+		smileys/TwitterEmojiSVG/1f34d.svg \
+		smileys/TwitterEmojiSVG/1f31d.svg \
+		smileys/TwitterEmojiSVG/1f3c2.svg \
+		smileys/TwitterEmojiSVG/1f516.svg \
+		smileys/TwitterEmojiSVG/1f1fd.svg \
+		smileys/TwitterEmojiSVG/1f482.svg \
+		smileys/TwitterEmojiSVG/1f452.svg \
+		smileys/TwitterEmojiSVG/1f64a.svg \
+		smileys/TwitterEmojiSVG/1f3c6.svg \
+		smileys/TwitterEmojiSVG/1f422.svg \
+		smileys/TwitterEmojiSVG/1f61a.svg \
+		smileys/TwitterEmojiSVG/1f4fa.svg \
+		smileys/TwitterEmojiSVG/1f486.svg \
+		smileys/TwitterEmojiSVG/1f456.svg \
+		smileys/TwitterEmojiSVG/1f64e.svg \
+		smileys/TwitterEmojiSVG/1f4da.svg \
+		smileys/TwitterEmojiSVG/1f426.svg \
+		smileys/TwitterEmojiSVG/1f61e.svg \
+		smileys/TwitterEmojiSVG/1f4aa.svg \
+		smileys/TwitterEmojiSVG/1f6c3.svg \
+		smileys/TwitterEmojiSVG/26f2.svg \
+		smileys/TwitterEmojiSVG/1f392.svg \
+		smileys/TwitterEmojiSVG/1f362.svg \
+		smileys/TwitterEmojiSVG/1f332.svg \
+		smileys/TwitterEmojiSVG/1f4de.svg \
+		smileys/TwitterEmojiSVG/1f302.svg \
+		smileys/TwitterEmojiSVG/1f53a.svg \
+		smileys/TwitterEmojiSVG/1f4ae.svg \
+		smileys/TwitterEmojiSVG/1f50a.svg \
+		smileys/TwitterEmojiSVG/3030.svg \
+		smileys/TwitterEmojiSVG/1f366.svg \
+		smileys/TwitterEmojiSVG/1f3ea.svg \
+		smileys/TwitterEmojiSVG/1f3ba.svg \
+		smileys/TwitterEmojiSVG/1f306.svg \
+		smileys/TwitterEmojiSVG/1f50e.svg \
+		smileys/TwitterEmojiSVG/1f1e6.svg \
+		smileys/TwitterEmojiSVG/1f47a.svg \
+		smileys/TwitterEmojiSVG/1f693.svg \
+		smileys/TwitterEmojiSVG/1f3ee.svg \
+		smileys/TwitterEmojiSVG/1f44a.svg \
+		smileys/TwitterEmojiSVG/1f3be.svg \
+		smileys/TwitterEmojiSVG/1f41a.svg \
+		smileys/TwitterEmojiSVG/1f633.svg \
+		smileys/TwitterEmojiSVG/1f603.svg \
+		smileys/TwitterEmojiSVG/1f47e.svg \
+		smileys/TwitterEmojiSVG/1f697.svg \
+		smileys/TwitterEmojiSVG/1f44e.svg \
+		smileys/TwitterEmojiSVG/1f4f3.svg \
+		smileys/TwitterEmojiSVG/1f41e.svg \
+		smileys/TwitterEmojiSVG/1f637.svg \
+		smileys/TwitterEmojiSVG/1f4c3.svg \
+		smileys/TwitterEmojiSVG/1f6bb.svg \
+		smileys/TwitterEmojiSVG/1f607.svg \
+		smileys/TwitterEmojiSVG/26ea.svg \
+		smileys/TwitterEmojiSVG/1f38a.svg \
+		smileys/TwitterEmojiSVG/1f35a.svg \
+		smileys/TwitterEmojiSVG/1f4f7.svg \
+		smileys/TwitterEmojiSVG/1f553.svg \
+		smileys/TwitterEmojiSVG/1f4c7.svg \
+		smileys/TwitterEmojiSVG/1f6bf.svg \
+		smileys/TwitterEmojiSVG/1f523.svg \
+		smileys/TwitterEmojiSVG/1f38e.svg \
+		smileys/TwitterEmojiSVG/26be.svg \
+		smileys/TwitterEmojiSVG/1f35e.svg \
+		smileys/TwitterEmojiSVG/1f5fb.svg \
+		smileys/TwitterEmojiSVG/1f557.svg \
+		smileys/TwitterEmojiSVG/1f3a3.svg \
+		smileys/TwitterEmojiSVG/1f527.svg \
+		smileys/TwitterEmojiSVG/274e.svg \
+		smileys/TwitterEmojiSVG/1f493.svg \
+		smileys/TwitterEmojiSVG/1f68b.svg \
+		smileys/TwitterEmojiSVG/1f23a.svg \
+		smileys/TwitterEmojiSVG/1f5ff.svg \
+		smileys/TwitterEmojiSVG/1f463.svg \
+		smileys/TwitterEmojiSVG/1f433.svg \
+		smileys/TwitterEmojiSVG/1f62b.svg \
+		smileys/TwitterEmojiSVG/1f3a7.svg \
+		smileys/TwitterEmojiSVG/1f403.svg \
+		smileys/TwitterEmojiSVG/1f6a0.svg \
+		smileys/TwitterEmojiSVG/263a.svg \
+		smileys/TwitterEmojiSVG/1f497.svg \
+		smileys/TwitterEmojiSVG/1f68f.svg \
+		smileys/TwitterEmojiSVG/1f467.svg \
+		smileys/TwitterEmojiSVG/1f437.svg \
+		smileys/TwitterEmojiSVG/1f62f.svg \
+		smileys/TwitterEmojiSVG/1f4bb.svg \
+		smileys/TwitterEmojiSVG/1f407.svg \
+		smileys/TwitterEmojiSVG/1f6a4.svg \
+		smileys/TwitterEmojiSVG/1f373.svg \
+		smileys/TwitterEmojiSVG/260e.svg \
+		smileys/TwitterEmojiSVG/1f343.svg \
+		smileys/TwitterEmojiSVG/1f313.svg \
+		smileys/TwitterEmojiSVG/1f4bf.svg \
+		smileys/TwitterEmojiSVG/1f51b.svg \
+		smileys/TwitterEmojiSVG/1f6a8.svg \
+		smileys/TwitterEmojiSVG/1f17e.svg \
+		smileys/TwitterEmojiSVG/2733.svg \
+		smileys/TwitterEmojiSVG/1f1f3.svg \
+		smileys/TwitterEmojiSVG/1f377.svg \
+		smileys/TwitterEmojiSVG/1f347.svg \
+		smileys/TwitterEmojiSVG/1f640.svg \
+		smileys/TwitterEmojiSVG/1f317.svg \
+		smileys/TwitterEmojiSVG/1f610.svg \
+		smileys/TwitterEmojiSVG/1f51f.svg \
+		smileys/TwitterEmojiSVG/2797.svg \
+		smileys/TwitterEmojiSVG/1f1f7.svg \
+		smileys/TwitterEmojiSVG/1f48b.svg \
+		smileys/TwitterEmojiSVG/1f45b.svg \
+		smileys/TwitterEmojiSVG/1f42b.svg \
+		smileys/TwitterEmojiSVG/1f4d0.svg \
+		smileys/TwitterEmojiSVG/1f614.svg \
+		smileys/TwitterEmojiSVG/1f4a0.svg \
+		smileys/TwitterEmojiSVG/2653.svg \
+		smileys/TwitterEmojiSVG/1f48f.svg \
+		smileys/TwitterEmojiSVG/27bf.svg \
+		smileys/TwitterEmojiSVG/1f45f.svg \
+		smileys/TwitterEmojiSVG/a9.svg \
+		smileys/TwitterEmojiSVG/1f42f.svg \
+		smileys/TwitterEmojiSVG/1f648.svg \
+		smileys/TwitterEmojiSVG/1f560.svg \
+		smileys/TwitterEmojiSVG/1f4d4.svg \
+		smileys/TwitterEmojiSVG/1f618.svg \
+		smileys/TwitterEmojiSVG/1f530.svg \
+		smileys/TwitterEmojiSVG/1f4a4.svg \
+		smileys/TwitterEmojiSVG/1f193.svg \
+		smileys/TwitterEmojiSVG/1f500.svg \
+		smileys/TwitterEmojiSVG/1f36b.svg \
+		smileys/TwitterEmojiSVG/1f33b.svg \
+		smileys/TwitterEmojiSVG/1f3e0.svg \
+		smileys/TwitterEmojiSVG/1f30b.svg \
+		smileys/TwitterEmojiSVG/1f564.svg \
+		smileys/TwitterEmojiSVG/1f4d8.svg \
+		smileys/TwitterEmojiSVG/1f3b0.svg \
+		smileys/TwitterEmojiSVG/1f534.svg \
+		smileys/TwitterEmojiSVG/1f4a8.svg \
+		smileys/TwitterEmojiSVG/1f197.svg \
+		smileys/TwitterEmojiSVG/1f504.svg \
+		smileys/TwitterEmojiSVG/1f1eb.svg \
+		smileys/TwitterEmojiSVG/1f36f.svg \
+		smileys/TwitterEmojiSVG/1f33f.svg \
+		smileys/TwitterEmojiSVG/1f470.svg \
+		smileys/TwitterEmojiSVG/1f3e4.svg \
+		smileys/TwitterEmojiSVG/1f30f.svg \
+		smileys/TwitterEmojiSVG/1f440.svg \
+		smileys/TwitterEmojiSVG/1f3b4.svg \
+		smileys/TwitterEmojiSVG/1f410.svg \
+		smileys/TwitterEmojiSVG/1f538.svg \
+		smileys/TwitterEmojiSVG/1f508.svg \
+		smileys/TwitterEmojiSVG/1f1ef.svg \
+		smileys/TwitterEmojiSVG/1f69c.svg \
+		smileys/TwitterEmojiSVG/1f474.svg \
+		smileys/TwitterEmojiSVG/1f3e8.svg \
+		smileys/TwitterEmojiSVG/1f444.svg \
+		smileys/TwitterEmojiSVG/1f63c.svg \
+		smileys/TwitterEmojiSVG/1f3b8.svg \
+		smileys/TwitterEmojiSVG/1f414.svg \
+		smileys/TwitterEmojiSVG/1f60c.svg \
+		smileys/TwitterEmojiSVG/1f6b1.svg \
+		smileys/TwitterEmojiSVG/267b.svg \
+		smileys/TwitterEmojiSVG/264b.svg \
+		smileys/TwitterEmojiSVG/1f380.svg \
+		smileys/TwitterEmojiSVG/1f4ec.svg \
+		smileys/TwitterEmojiSVG/1f350.svg \
+		smileys/TwitterEmojiSVG/1f478.svg \
+		smileys/TwitterEmojiSVG/1f320.svg \
+		smileys/TwitterEmojiSVG/1f448.svg \
+		smileys/TwitterEmojiSVG/1f4cc.svg \
+		smileys/TwitterEmojiSVG/1f418.svg \
+		smileys/TwitterEmojiSVG/1f6b5.svg \
+		smileys/TwitterEmojiSVG/267f.svg \
+		smileys/TwitterEmojiSVG/1f1e9-1f1ea.svg \
+		smileys/TwitterEmojiSVG/1f0cf.svg \
+		smileys/TwitterEmojiSVG/264f.svg \
+		smileys/TwitterEmojiSVG/1f384.svg \
+		smileys/TwitterEmojiSVG/1f354.svg \
+		smileys/TwitterEmojiSVG/1f55c.svg \
+		smileys/TwitterEmojiSVG/1f52c.svg \
+		smileys/TwitterEmojiSVG/1f6b9.svg \
+		smileys/TwitterEmojiSVG/2744.svg \
+		smileys/TwitterEmojiSVG/1f388.svg \
+		smileys/TwitterEmojiSVG/2714.svg \
+		smileys/TwitterEmojiSVG/1f358.svg \
+		smileys/TwitterEmojiSVG/1f681.svg \
+		smileys/TwitterEmojiSVG/1f3ac.svg \
+		smileys/TwitterEmojiSVG/1f621.svg \
+		smileys/TwitterEmojiSVG/2660.svg \
+		smileys/TwitterEmojiSVG/1f49c.svg \
+		smileys/TwitterEmojiSVG/1f46c.svg \
+		smileys/TwitterEmojiSVG/1f685.svg \
+		smileys/TwitterEmojiSVG/1f234.svg \
+		smileys/TwitterEmojiSVG/2600.svg \
+		smileys/TwitterEmojiSVG/1f43c.svg \
+		smileys/TwitterEmojiSVG/1f4e1.svg \
+		smileys/TwitterEmojiSVG/1f40c.svg \
+		smileys/TwitterEmojiSVG/1f625.svg \
+		smileys/TwitterEmojiSVG/1f4b1.svg \
+		smileys/TwitterEmojiSVG/1f170.svg \
+		smileys/TwitterEmojiSVG/1f689.svg \
+		smileys/TwitterEmojiSVG/1f238.svg \
+		smileys/TwitterEmojiSVG/1f4e5.svg \
+		smileys/TwitterEmojiSVG/1f629.svg \
+		smileys/TwitterEmojiSVG/1f4b5.svg \
+		smileys/TwitterEmojiSVG/1f6ad.svg \
+		smileys/TwitterEmojiSVG/1f511.svg \
+		smileys/TwitterEmojiSVG/2668.svg \
+		smileys/TwitterEmojiSVG/1f37c.svg \
+		smileys/TwitterEmojiSVG/1f34c.svg \
+		smileys/TwitterEmojiSVG/1f31c.svg \
+		smileys/TwitterEmojiSVG/1f4e9.svg \
+		smileys/TwitterEmojiSVG/1f3c1.svg \
+		smileys/TwitterEmojiSVG/1f4b9.svg \
+		smileys/TwitterEmojiSVG/1f515.svg \
+		smileys/TwitterEmojiSVG/1f1fc.svg \
+		smileys/TwitterEmojiSVG/270c.svg \
+		smileys/TwitterEmojiSVG/1f481.svg \
+		smileys/TwitterEmojiSVG/2935.svg \
+		smileys/TwitterEmojiSVG/1f451.svg \
+		smileys/TwitterEmojiSVG/1f421.svg \
+		smileys/TwitterEmojiSVG/1f519.svg \
+		smileys/TwitterEmojiSVG/1f485.svg \
+		smileys/TwitterEmojiSVG/ae.svg \
+		smileys/TwitterEmojiSVG/1f455.svg \
+		smileys/TwitterEmojiSVG/1f64d.svg \
+		smileys/TwitterEmojiSVG/1f004.svg \
+		smileys/TwitterEmojiSVG/1f3c9.svg \
+		smileys/TwitterEmojiSVG/1f425.svg \
+		smileys/TwitterEmojiSVG/1f61d.svg \
+		smileys/TwitterEmojiSVG/1f6c2.svg \
+		smileys/TwitterEmojiSVG/1f391.svg \
+		smileys/TwitterEmojiSVG/1f361.svg \
+		smileys/TwitterEmojiSVG/1f489.svg \
+		smileys/TwitterEmojiSVG/1f331.svg \
+		smileys/TwitterEmojiSVG/1f459.svg \
+		smileys/TwitterEmojiSVG/1f4dd.svg \
+		smileys/TwitterEmojiSVG/1f429.svg \
+		smileys/TwitterEmojiSVG/1f301.svg \
+		smileys/TwitterEmojiSVG/1f4ad.svg \
+		smileys/TwitterEmojiSVG/26f5.svg \
+		smileys/TwitterEmojiSVG/26c5.svg \
+		smileys/TwitterEmojiSVG/1f365.svg \
+		smileys/TwitterEmojiSVG/1f335.svg \
+		smileys/TwitterEmojiSVG/1f305.svg \
+		smileys/TwitterEmojiSVG/1f53d.svg \
+		smileys/TwitterEmojiSVG/1f50d.svg \
+		smileys/TwitterEmojiSVG/2755.svg \
+		smileys/TwitterEmojiSVG/1f369.svg \
+		smileys/TwitterEmojiSVG/1f692.svg \
+		smileys/TwitterEmojiSVG/1f3ed.svg \
+		smileys/TwitterEmojiSVG/1f339.svg \
+		smileys/TwitterEmojiSVG/1f3bd.svg \
+		smileys/TwitterEmojiSVG/1f632.svg \
+		smileys/TwitterEmojiSVG/1f309.svg \
+		smileys/TwitterEmojiSVG/1f602.svg \
+		smileys/TwitterEmojiSVG/1f1e9.svg \
+		smileys/TwitterEmojiSVG/1f47d.svg \
+		smileys/TwitterEmojiSVG/1f696.svg \
+		smileys/TwitterEmojiSVG/2611.svg \
+		smileys/TwitterEmojiSVG/1f44d.svg \
+		smileys/TwitterEmojiSVG/1f4f2.svg \
+		smileys/TwitterEmojiSVG/1f41d.svg \
+		smileys/TwitterEmojiSVG/1f636.svg \
+		smileys/TwitterEmojiSVG/1f4c2.svg \
+		smileys/TwitterEmojiSVG/1f6ba.svg \
+		smileys/TwitterEmojiSVG/1f606.svg \
+		smileys/TwitterEmojiSVG/2615.svg \
+		smileys/TwitterEmojiSVG/1f4f6.svg \
+		smileys/TwitterEmojiSVG/1f552.svg \
+		smileys/TwitterEmojiSVG/1f4c6.svg \
+		smileys/TwitterEmojiSVG/1f6be.svg \
+		smileys/TwitterEmojiSVG/1f522.svg \
+		smileys/TwitterEmojiSVG/1f38d.svg \
+		smileys/TwitterEmojiSVG/26bd.svg \
+		smileys/TwitterEmojiSVG/2649.svg \
+		smileys/TwitterEmojiSVG/1f35d.svg \
+		smileys/TwitterEmojiSVG/1f556.svg \
+		smileys/TwitterEmojiSVG/1f1ee-1f1f9.svg \
+		smileys/TwitterEmojiSVG/1f3a2.svg \
+		smileys/TwitterEmojiSVG/1f526.svg \
+		smileys/TwitterEmojiSVG/1f492.svg \
+		smileys/TwitterEmojiSVG/1f68a.svg \
+		smileys/TwitterEmojiSVG/1f5fe.svg \
+		smileys/TwitterEmojiSVG/1f462.svg \
+		smileys/TwitterEmojiSVG/1f432.svg \
+		smileys/TwitterEmojiSVG/1f62a.svg \
+		smileys/TwitterEmojiSVG/1f3a6.svg \
+		smileys/TwitterEmojiSVG/1f402.svg \
+		smileys/TwitterEmojiSVG/1f496.svg \
+		smileys/TwitterEmojiSVG/1f68e.svg \
+		smileys/TwitterEmojiSVG/1f466.svg \
+		smileys/TwitterEmojiSVG/1f62e.svg \
+		smileys/TwitterEmojiSVG/1f436.svg \
+		smileys/TwitterEmojiSVG/1f4ba.svg \
+		smileys/TwitterEmojiSVG/1f406.svg \
+		smileys/TwitterEmojiSVG/1f6a3.svg \
+		smileys/TwitterEmojiSVG/1f372.svg \
+		smileys/TwitterEmojiSVG/1f342.svg \
+		smileys/TwitterEmojiSVG/1f312.svg \
+		smileys/TwitterEmojiSVG/1f4be.svg \
+		smileys/TwitterEmojiSVG/1f51a.svg \
+		smileys/TwitterEmojiSVG/1f6a7.svg \
+		smileys/TwitterEmojiSVG/1f1f2.svg \
+		smileys/TwitterEmojiSVG/1f376.svg \
+		smileys/TwitterEmojiSVG/2702.svg \
+		smileys/TwitterEmojiSVG/1f346.svg \
+		smileys/cylgom/vomit.png \
+		smileys/cylgom/whew.png \
+		smileys/cylgom/kiss.png \
+		smileys/cylgom/sad.png \
+		smileys/cylgom/sleeping.png \
+		smileys/cylgom/moustache.png \
+		smileys/cylgom/nerd.png \
+		smileys/cylgom/angel.png \
+		smileys/cylgom/lol.png \
+		smileys/cylgom/diamond.png \
+		smileys/cylgom/MrSmith.png \
+		smileys/cylgom/shy.png \
+		smileys/cylgom/jealous.png \
+		smileys/cylgom/inlove.png \
+		smileys/cylgom/tongue.png \
+		smileys/cylgom/smile.png \
+		smileys/cylgom/XP.png \
+		smileys/cylgom/suspicious.png \
+		smileys/cylgom/finger.png \
+		smileys/cylgom/eye.png \
+		smileys/cylgom/devil.png \
+		smileys/cylgom/bomb.png \
+		smileys/cylgom/cool.png \
+		smileys/cylgom/hacker_terminal.png \
+		smileys/cylgom/X(.png \
+		smileys/cylgom/hot.png \
+		smileys/cylgom/happysmile.png \
+		smileys/cylgom/XD.png \
+		smileys/cylgom/wasntme.png \
+		smileys/cylgom/rain.png \
+		smileys/cylgom/highfive.png \
+		smileys/cylgom/oops.png \
+		smileys/cylgom/beer.png \
+		smileys/cylgom/yawn.png \
+		smileys/cylgom/evil.png \
+		smileys/cylgom/cookie.png \
+		smileys/cylgom/heart.png \
+		smileys/cylgom/crossing.png \
+		smileys/cylgom/facepalm.png \
+		smileys/cylgom/angry.png \
+		smileys/cylgom/crying.png \
+		smileys/cylgom/sniggering.png \
+		smileys/cylgom/syringe.png \
+		smileys/cylgom/wink.png \
+		smileys/cylgom/emoticons.xml \
+		smileys/cylgom/hi.png \
+		smileys/cylgom/party.png \
+		smileys/cylgom/doh.png \
+		smileys/cylgom/rocknroll.png \
+		smileys/cylgom/nospeak.png \
+		smileys/cylgom/wondering.png \
+		smileys/cylgom/bored.png \
+		smileys/cylgom/impressed.png \
+		smileys/cylgom/toxlocker.png \
+		smileys/cylgom/pressed.png \
 		smileys/krepa098/Kappa.png \
-		smileys/krepa098/sad.png \
+		smileys/krepa098/scared.png \
 		smileys/krepa098/emoticons.xml \
+		smileys/krepa098/laugh_closed_eyes.png \
+		smileys/krepa098/wink.png \
+		smileys/krepa098/crying.png \
+		smileys/krepa098/raw.svg \
+		smileys/krepa098/cool.png \
 		smileys/krepa098/smile.png \
-		smileys/krepa098/tongue.png \
 		smileys/krepa098/plain.png \
 		smileys/krepa098/angry.png \
-		smileys/krepa098/laugh_closed_eyes.png \
+		smileys/krepa098/sad.png \
+		smileys/krepa098/tongue.png \
+		smileys/krepa098/stunned.png \
 		smileys/krepa098/uncertain.png \
-		smileys/krepa098/raw.svg \
-		smileys/krepa098/wink.png \
 		smileys/krepa098/happy.png \
-		smileys/krepa098/scared.png \
 		smileys/krepa098/laugh.png \
-		smileys/krepa098/stunned.png
+		smileys/TwitterEmojiSimple/emoticons.xml
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name smileys smileys/smileys.qrc -o qrc_smileys.cpp
 
 compiler_moc_header_make_all: moc_group.cpp moc_smileypack.cpp moc_emoticonswidget.cpp moc_croppinglabel.cpp moc_maskablepixmapwidget.cpp moc_videosurface.cpp moc_toxuri.cpp moc_toxdns.cpp moc_chatlog.cpp moc_spinner.cpp moc_filetransferwidget.cpp moc_customtextdocument.cpp moc_advancedform.cpp moc_notificationicon.cpp moc_offlinemsgengine.cpp moc_addfriendform.cpp moc_chatform.cpp moc_groupchatform.cpp moc_settingswidget.cpp moc_genericsettings.cpp moc_generalform.cpp moc_identityform.cpp moc_privacyform.cpp moc_avform.cpp moc_filesform.cpp moc_chattextedit.cpp moc_friendrequestdialog.cpp moc_friendwidget.cpp moc_groupwidget.cpp moc_widget.cpp moc_netcamview.cpp moc_friendlistwidget.cpp moc_genericchatroomwidget.cpp moc_genericchatform.cpp moc_adjustingscrollarea.cpp moc_loadhistorydialog.cpp moc_setpassworddialog.cpp moc_tabcompleter.cpp moc_ipc.cpp moc_callconfirmwidget.cpp moc_systemtrayicon.cpp moc_audio.cpp moc_core.cpp moc_nexus.cpp moc_settings.cpp moc_camera.cpp moc_cameraworker.cpp moc_videosource.cpp moc_gui.cpp
@@ -3416,6 +3416,23 @@ moc_addfriendform.cpp: /usr/include/qt5/QtWidgets/QVBoxLayout \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
 		src/widget/form/addfriendform.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) $(INCPATH) -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include src/widget/form/addfriendform.h -o moc_addfriendform.cpp
 
@@ -5220,20 +5237,7 @@ moc_widget.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -5249,6 +5253,20 @@ moc_widget.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtCore/QString \
 		src/corestructs.h \
@@ -9459,31 +9477,9 @@ addfriendform.o: src/widget/form/addfriendform.cpp src/widget/form/addfriendform
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtGui/QFont \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		/usr/include/qt5/QtWidgets/qdialog.h \
-		/usr/include/qt5/QtWidgets/QErrorMessage \
-		/usr/include/qt5/QtWidgets/qerrormessage.h \
-		ui_mainwindow.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
 		/usr/include/qt5/QtCore/qabstractitemmodel.h \
 		/usr/include/qt5/QtCore/qitemselectionmodel.h \
@@ -9498,21 +9494,16 @@ addfriendform.o: src/widget/form/addfriendform.cpp src/widget/form/addfriendform
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QMenuBar \
-		/usr/include/qt5/QtWidgets/qmenubar.h \
-		/usr/include/qt5/QtWidgets/qmenu.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSplitter \
-		/usr/include/qt5/QtWidgets/qsplitter.h \
-		/usr/include/qt5/QtWidgets/QStatusBar \
-		/usr/include/qt5/QtWidgets/qstatusbar.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		src/widget/adjustingscrollarea.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		src/widget/croppinglabel.h \
+		/usr/include/qt5/QtGui/QFont \
+		/usr/include/qt5/QtCore/QCoreApplication \
+		/usr/include/qt5/QtCore/qcoreapplication.h \
+		/usr/include/qt5/QtCore/qeventloop.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
+		/usr/include/qt5/QtWidgets/QErrorMessage \
+		/usr/include/qt5/QtWidgets/qerrormessage.h \
+		ui_mainwindow.h \
 		src/nexus.h \
 		/usr/include/qt5/QtCore/QObject \
 		src/core.h \
@@ -9534,7 +9525,29 @@ addfriendform.o: src/widget/form/addfriendform.cpp src/widget/form/addfriendform
 		/usr/include/qt5/QtNetwork/QDnsLookup \
 		/usr/include/qt5/QtNetwork/qdnslookup.h \
 		src/misc/settings.h \
-		/usr/include/qt5/QtGui/QPixmap
+		/usr/include/qt5/QtGui/QPixmap \
+		src/widget/widget.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
+		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
+		/usr/include/qt5/QtCore/QFileInfo \
+		/usr/include/qt5/QtCore/qfileinfo.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QTabWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addfriendform.o src/widget/form/addfriendform.cpp
 
 settingswidget.o: src/widget/form/settingswidget.cpp src/widget/form/settingswidget.h \
@@ -9682,16 +9695,7 @@ settingswidget.o: src/widget/form/settingswidget.cpp src/widget/form/settingswid
 		/usr/include/qt5/QtWidgets/qtextedit.h \
 		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtGui/qtextdocument.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -9707,39 +9711,20 @@ settingswidget.o: src/widget/form/settingswidget.cpp src/widget/form/settingswid
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtCore/QString \
 		src/corestructs.h \
 		ui_mainwindow.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/QMenuBar \
-		/usr/include/qt5/QtWidgets/qmenubar.h \
-		/usr/include/qt5/QtWidgets/qmenu.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSplitter \
-		/usr/include/qt5/QtWidgets/qsplitter.h \
-		/usr/include/qt5/QtWidgets/QStatusBar \
-		/usr/include/qt5/QtWidgets/qstatusbar.h \
-		src/widget/adjustingscrollarea.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		src/widget/croppinglabel.h \
 		src/video/camera.h \
 		/usr/include/qt5/QtGui/QImage \
 		/usr/include/qt5/QtCore/QList \
@@ -9771,9 +9756,11 @@ settingswidget.o: src/widget/form/settingswidget.cpp src/widget/form/settingswid
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o settingswidget.o src/widget/form/settingswidget.cpp
 
 generalform.o: src/widget/form/settings/generalform.cpp ui_generalsettings.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtCore/qvariant.h \
-		/usr/include/qt5/QtCore/qatomic.h \
+		src/widget/form/settings/generalform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/qwidget.h \
+		/usr/include/qt5/QtGui/qwindowdefs.h \
 		/usr/include/qt5/QtCore/qglobal.h \
 		/usr/include/qt5/QtCore/qconfig.h \
 		/usr/include/qt5/QtCore/qfeatures.h \
@@ -9781,12 +9768,7 @@ generalform.o: src/widget/form/settings/generalform.cpp ui_generalsettings.h \
 		/usr/include/qt5/QtCore/qprocessordetection.h \
 		/usr/include/qt5/QtCore/qcompilerdetection.h \
 		/usr/include/qt5/QtCore/qglobalstatic.h \
-		/usr/include/qt5/QtCore/qmutex.h \
-		/usr/include/qt5/QtCore/qlogging.h \
-		/usr/include/qt5/QtCore/qflags.h \
-		/usr/include/qt5/QtCore/qtypeinfo.h \
-		/usr/include/qt5/QtCore/qtypetraits.h \
-		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qatomic.h \
 		/usr/include/qt5/QtCore/qbasicatomic.h \
 		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
 		/usr/include/qt5/QtCore/qgenericatomic.h \
@@ -9809,56 +9791,49 @@ generalform.o: src/widget/form/settings/generalform.cpp ui_generalsettings.h \
 		/usr/include/qt5/QtCore/qatomic_x86.h \
 		/usr/include/qt5/QtCore/qatomic_cxx11.h \
 		/usr/include/qt5/QtCore/qatomic_unix.h \
-		/usr/include/qt5/QtCore/qbytearray.h \
-		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
 		/usr/include/qt5/QtCore/qnamespace.h \
-		/usr/include/qt5/QtCore/qarraydata.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtGui/qwindowdefs_win.h \
+		/usr/include/qt5/QtCore/qobject.h \
 		/usr/include/qt5/QtCore/qstring.h \
 		/usr/include/qt5/QtCore/qchar.h \
+		/usr/include/qt5/QtCore/qbytearray.h \
+		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qarraydata.h \
 		/usr/include/qt5/QtCore/qstringbuilder.h \
 		/usr/include/qt5/QtCore/qlist.h \
 		/usr/include/qt5/QtCore/qalgorithms.h \
 		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
 		/usr/include/qt5/QtCore/qmetatype.h \
 		/usr/include/qt5/QtCore/qvarlengtharray.h \
 		/usr/include/qt5/QtCore/qcontainerfwd.h \
 		/usr/include/qt5/QtCore/qisenum.h \
-		/usr/include/qt5/QtCore/qobjectdefs.h \
-		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
-		/usr/include/qt5/QtCore/qmap.h \
-		/usr/include/qt5/QtCore/qpair.h \
-		/usr/include/qt5/QtCore/qdebug.h \
-		/usr/include/qt5/QtCore/qhash.h \
-		/usr/include/qt5/QtCore/qtextstream.h \
-		/usr/include/qt5/QtCore/qiodevice.h \
-		/usr/include/qt5/QtCore/qobject.h \
-		/usr/include/qt5/QtCore/qcoreevent.h \
-		/usr/include/qt5/QtCore/qscopedpointer.h \
 		/usr/include/qt5/QtCore/qobject_impl.h \
-		/usr/include/qt5/QtCore/qlocale.h \
-		/usr/include/qt5/QtCore/qshareddata.h \
-		/usr/include/qt5/QtCore/qvector.h \
-		/usr/include/qt5/QtCore/qpoint.h \
-		/usr/include/qt5/QtCore/qset.h \
-		/usr/include/qt5/QtCore/qcontiguouscache.h \
-		/usr/include/qt5/QtCore/qstringlist.h \
-		/usr/include/qt5/QtCore/qdatastream.h \
-		/usr/include/qt5/QtCore/qregexp.h \
-		/usr/include/qt5/QtCore/qstringmatcher.h \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtGui/qkeysequence.h \
-		/usr/include/qt5/QtWidgets/qwidget.h \
-		/usr/include/qt5/QtGui/qwindowdefs.h \
-		/usr/include/qt5/QtGui/qwindowdefs_win.h \
 		/usr/include/qt5/QtCore/qmargins.h \
 		/usr/include/qt5/QtCore/qrect.h \
 		/usr/include/qt5/QtCore/qsize.h \
+		/usr/include/qt5/QtCore/qpoint.h \
 		/usr/include/qt5/QtGui/qpaintdevice.h \
 		/usr/include/qt5/QtGui/qpalette.h \
 		/usr/include/qt5/QtGui/qcolor.h \
 		/usr/include/qt5/QtGui/qrgb.h \
+		/usr/include/qt5/QtCore/qstringlist.h \
+		/usr/include/qt5/QtCore/qdatastream.h \
+		/usr/include/qt5/QtCore/qiodevice.h \
+		/usr/include/qt5/QtCore/qpair.h \
+		/usr/include/qt5/QtCore/qregexp.h \
+		/usr/include/qt5/QtCore/qstringmatcher.h \
 		/usr/include/qt5/QtGui/qbrush.h \
+		/usr/include/qt5/QtCore/qvector.h \
 		/usr/include/qt5/QtGui/qmatrix.h \
 		/usr/include/qt5/QtGui/qpolygon.h \
 		/usr/include/qt5/QtGui/qregion.h \
@@ -9868,35 +9843,73 @@ generalform.o: src/widget/form/settings/generalform.cpp ui_generalsettings.h \
 		/usr/include/qt5/QtGui/qimage.h \
 		/usr/include/qt5/QtGui/qpixmap.h \
 		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
 		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
 		/usr/include/qt5/QtGui/qfont.h \
 		/usr/include/qt5/QtGui/qfontmetrics.h \
 		/usr/include/qt5/QtGui/qfontinfo.h \
 		/usr/include/qt5/QtWidgets/qsizepolicy.h \
 		/usr/include/qt5/QtGui/qcursor.h \
+		/usr/include/qt5/QtGui/qkeysequence.h \
 		/usr/include/qt5/QtGui/qevent.h \
+		/usr/include/qt5/QtCore/qvariant.h \
+		/usr/include/qt5/QtCore/qmap.h \
+		/usr/include/qt5/QtCore/qdebug.h \
+		/usr/include/qt5/QtCore/qtextstream.h \
+		/usr/include/qt5/QtCore/qlocale.h \
+		/usr/include/qt5/QtCore/qset.h \
+		/usr/include/qt5/QtCore/qcontiguouscache.h \
 		/usr/include/qt5/QtCore/qurl.h \
 		/usr/include/qt5/QtCore/qurlquery.h \
 		/usr/include/qt5/QtCore/qfile.h \
 		/usr/include/qt5/QtCore/qfiledevice.h \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QCheckBox \
-		/usr/include/qt5/QtWidgets/qcheckbox.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QComboBox \
-		/usr/include/qt5/QtWidgets/qcombobox.h \
+		/usr/include/qt5/QtGui/qicon.h \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/widget.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
+		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
+		/usr/include/qt5/QtCore/QFileInfo \
+		/usr/include/qt5/QtCore/qfileinfo.h \
+		src/widget/form/addfriendform.h \
+		/usr/include/qt5/QtWidgets/QVBoxLayout \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QLineEdit \
+		/usr/include/qt5/QtWidgets/qlineedit.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtWidgets/QTextEdit \
+		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
 		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
 		/usr/include/qt5/QtWidgets/qstyleoption.h \
 		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
@@ -9906,70 +9919,15 @@ generalform.o: src/widget/form/settings/generalform.cpp ui_generalsettings.h \
 		/usr/include/qt5/QtWidgets/qabstractslider.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtWidgets/QFormLayout \
-		/usr/include/qt5/QtWidgets/qformlayout.h \
-		/usr/include/qt5/QtWidgets/QLayout \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
+		src/widget/form/settings/identityform.h \
 		/usr/include/qt5/QtWidgets/QGroupBox \
 		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QLineEdit \
-		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
-		/usr/include/qt5/QtWidgets/QPushButton \
-		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSpinBox \
-		/usr/include/qt5/QtWidgets/qspinbox.h \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		/usr/include/qt5/QtWidgets/QWidget \
-		src/widget/form/settings/generalform.h \
-		src/widget/form/settings/genericsettings.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/widget.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
-		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		/usr/include/qt5/QtWidgets/qdialog.h \
-		/usr/include/qt5/QtCore/QFileInfo \
-		/usr/include/qt5/QtCore/qfileinfo.h \
-		src/widget/form/addfriendform.h \
-		/usr/include/qt5/QtWidgets/QTextEdit \
-		/usr/include/qt5/QtWidgets/qtextedit.h \
-		/usr/include/qt5/QtGui/qtextdocument.h \
-		src/widget/form/settings/identityform.h \
 		/usr/include/qt5/QtCore/QTimer \
 		/usr/include/qt5/QtCore/qtimer.h \
 		/usr/include/qt5/QtCore/qbasictimer.h \
 		src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
-		/usr/include/qt5/QtWidgets/qlistwidget.h \
-		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtCore/QString \
 		src/corestructs.h \
@@ -10081,34 +10039,25 @@ identityform.o: src/widget/form/settings/identityform.cpp src/core.h \
 		/usr/include/qt5/QtCore/QByteArray \
 		src/coredefines.h \
 		ui_identitysettings.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtCore/qvariant.h \
-		/usr/include/qt5/QtCore/qmap.h \
-		/usr/include/qt5/QtCore/qdebug.h \
-		/usr/include/qt5/QtCore/qtextstream.h \
-		/usr/include/qt5/QtCore/qiodevice.h \
-		/usr/include/qt5/QtCore/qlocale.h \
-		/usr/include/qt5/QtCore/qshareddata.h \
-		/usr/include/qt5/QtCore/qvector.h \
-		/usr/include/qt5/QtCore/qpoint.h \
-		/usr/include/qt5/QtCore/qset.h \
-		/usr/include/qt5/QtCore/qcontiguouscache.h \
-		/usr/include/qt5/QtCore/qstringlist.h \
-		/usr/include/qt5/QtCore/qdatastream.h \
-		/usr/include/qt5/QtCore/qregexp.h \
-		/usr/include/qt5/QtCore/qstringmatcher.h \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtGui/qkeysequence.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
 		/usr/include/qt5/QtWidgets/qwidget.h \
 		/usr/include/qt5/QtGui/qwindowdefs.h \
 		/usr/include/qt5/QtGui/qwindowdefs_win.h \
 		/usr/include/qt5/QtCore/qmargins.h \
 		/usr/include/qt5/QtCore/qrect.h \
+		/usr/include/qt5/QtCore/qpoint.h \
 		/usr/include/qt5/QtGui/qpaintdevice.h \
 		/usr/include/qt5/QtGui/qpalette.h \
 		/usr/include/qt5/QtGui/qcolor.h \
+		/usr/include/qt5/QtCore/qstringlist.h \
+		/usr/include/qt5/QtCore/qdatastream.h \
+		/usr/include/qt5/QtCore/qiodevice.h \
+		/usr/include/qt5/QtCore/qregexp.h \
+		/usr/include/qt5/QtCore/qstringmatcher.h \
 		/usr/include/qt5/QtGui/qbrush.h \
+		/usr/include/qt5/QtCore/qvector.h \
 		/usr/include/qt5/QtGui/qmatrix.h \
 		/usr/include/qt5/QtGui/qpolygon.h \
 		/usr/include/qt5/QtGui/qregion.h \
@@ -10118,32 +10067,80 @@ identityform.o: src/widget/form/settings/identityform.cpp src/core.h \
 		/usr/include/qt5/QtGui/qimage.h \
 		/usr/include/qt5/QtGui/qpixmap.h \
 		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
 		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
 		/usr/include/qt5/QtGui/qfont.h \
 		/usr/include/qt5/QtGui/qfontmetrics.h \
 		/usr/include/qt5/QtGui/qfontinfo.h \
 		/usr/include/qt5/QtWidgets/qsizepolicy.h \
 		/usr/include/qt5/QtGui/qcursor.h \
+		/usr/include/qt5/QtGui/qkeysequence.h \
 		/usr/include/qt5/QtGui/qevent.h \
+		/usr/include/qt5/QtCore/qvariant.h \
+		/usr/include/qt5/QtCore/qmap.h \
+		/usr/include/qt5/QtCore/qdebug.h \
+		/usr/include/qt5/QtCore/qtextstream.h \
+		/usr/include/qt5/QtCore/qlocale.h \
+		/usr/include/qt5/QtCore/qset.h \
+		/usr/include/qt5/QtCore/qcontiguouscache.h \
 		/usr/include/qt5/QtCore/qurl.h \
 		/usr/include/qt5/QtCore/qurlquery.h \
 		/usr/include/qt5/QtCore/qfile.h \
 		/usr/include/qt5/QtCore/qfiledevice.h \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QComboBox \
-		/usr/include/qt5/QtWidgets/qcombobox.h \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QTextEdit \
+		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
+		/usr/include/qt5/QtWidgets/QLineEdit \
+		/usr/include/qt5/QtWidgets/qlineedit.h \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/misc/settings.h \
+		/usr/include/qt5/QtGui/QPixmap \
+		src/widget/croppinglabel.h \
+		src/widget/widget.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
+		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
+		/usr/include/qt5/QtWidgets/QMessageBox \
+		/usr/include/qt5/QtWidgets/qmessagebox.h \
+		/usr/include/qt5/QtWidgets/qdialog.h \
+		/usr/include/qt5/QtCore/QFileInfo \
+		/usr/include/qt5/QtCore/qfileinfo.h \
+		src/widget/form/addfriendform.h \
+		/usr/include/qt5/QtWidgets/QVBoxLayout \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
 		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
 		/usr/include/qt5/QtWidgets/qstyleoption.h \
 		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
@@ -10153,66 +10150,9 @@ identityform.o: src/widget/form/settings/identityform.cpp src/core.h \
 		/usr/include/qt5/QtWidgets/qabstractslider.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QLineEdit \
-		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
-		/usr/include/qt5/QtWidgets/QPushButton \
-		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		/usr/include/qt5/QtWidgets/QWidget \
-		src/widget/croppinglabel.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		/usr/include/qt5/QtWidgets/QTextEdit \
-		/usr/include/qt5/QtWidgets/qtextedit.h \
-		/usr/include/qt5/QtGui/qtextdocument.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/misc/settings.h \
-		/usr/include/qt5/QtGui/QPixmap \
-		src/widget/widget.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
-		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
-		/usr/include/qt5/QtWidgets/QMessageBox \
-		/usr/include/qt5/QtWidgets/qmessagebox.h \
-		/usr/include/qt5/QtWidgets/qdialog.h \
-		/usr/include/qt5/QtCore/QFileInfo \
-		/usr/include/qt5/QtCore/qfileinfo.h \
-		src/widget/form/addfriendform.h \
 		src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
-		/usr/include/qt5/QtWidgets/qlistwidget.h \
-		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		src/widget/gui.h \
 		src/historykeeper.h \
@@ -10223,6 +10163,13 @@ identityform.o: src/widget/form/settings/identityform.cpp src/core.h \
 		src/misc/style.h \
 		/usr/include/qt5/QtGui/QColor \
 		/usr/include/qt5/QtGui/QFont \
+		/usr/include/qt5/QtWidgets/QApplication \
+		/usr/include/qt5/QtWidgets/qapplication.h \
+		/usr/include/qt5/QtCore/qcoreapplication.h \
+		/usr/include/qt5/QtCore/qeventloop.h \
+		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
+		/usr/include/qt5/QtGui/qguiapplication.h \
+		/usr/include/qt5/QtGui/qinputmethod.h \
 		/usr/include/qt5/QtGui/QClipboard \
 		/usr/include/qt5/QtGui/qclipboard.h \
 		/usr/include/qt5/QtWidgets/QInputDialog \
@@ -10355,53 +10302,6 @@ privacyform.o: src/widget/form/settings/privacyform.cpp src/widget/form/settings
 		/usr/include/qt5/QtWidgets/QStyleFactory \
 		/usr/include/qt5/QtWidgets/qstylefactory.h \
 		ui_privacysettings.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QCheckBox \
-		/usr/include/qt5/QtWidgets/qcheckbox.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QLineEdit \
-		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		src/misc/settings.h \
 		/usr/include/qt5/QtCore/QHash \
 		/usr/include/qt5/QtCore/QObject \
@@ -10427,6 +10327,7 @@ privacyform.o: src/widget/form/settings/privacyform.cpp src/widget/form/settings
 		src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
 		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
@@ -10435,17 +10336,44 @@ privacyform.o: src/widget/form/settings/privacyform.cpp src/widget/form/settings
 		/usr/include/qt5/QtCore/QFileInfo \
 		/usr/include/qt5/QtCore/qfileinfo.h \
 		src/widget/form/addfriendform.h \
+		/usr/include/qt5/QtWidgets/QVBoxLayout \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QLineEdit \
+		/usr/include/qt5/QtWidgets/qlineedit.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
 		/usr/include/qt5/QtWidgets/QTextEdit \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
 		src/widget/form/settings/identityform.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
 		/usr/include/qt5/QtCore/QTimer \
 		/usr/include/qt5/QtCore/qtimer.h \
 		/usr/include/qt5/QtCore/qbasictimer.h \
 		src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
-		/usr/include/qt5/QtWidgets/qlistwidget.h \
-		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		src/widget/gui.h \
 		src/widget/form/setpassworddialog.h \
@@ -10607,50 +10535,6 @@ avform.o: src/widget/form/settings/avform.cpp src/widget/form/settings/avform.h 
 		/usr/include/qt5/QtWidgets/qframe.h \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		ui_avsettings.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QCheckBox \
-		/usr/include/qt5/QtWidgets/qcheckbox.h \
-		/usr/include/qt5/QtWidgets/QComboBox \
-		/usr/include/qt5/QtWidgets/qcombobox.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtWidgets/QFormLayout \
-		/usr/include/qt5/QtWidgets/qformlayout.h \
-		/usr/include/qt5/QtWidgets/QLayout \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		/usr/include/qt5/QtWidgets/QSlider \
 		src/misc/settings.h \
 		/usr/include/qt5/QtCore/QHash \
 		/usr/include/qt5/QtGui/QPixmap \
@@ -10795,43 +10679,9 @@ filesform.o: src/widget/form/filesform.cpp src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/qlayoutitem.h \
 		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		ui_mainwindow.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
+		src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QMenuBar \
-		/usr/include/qt5/QtWidgets/qmenubar.h \
-		/usr/include/qt5/QtWidgets/qmenu.h \
-		/usr/include/qt5/QtWidgets/QPushButton \
-		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSplitter \
-		/usr/include/qt5/QtWidgets/qsplitter.h \
-		/usr/include/qt5/QtWidgets/QStatusBar \
-		/usr/include/qt5/QtWidgets/qstatusbar.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		src/widget/adjustingscrollarea.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		src/widget/croppinglabel.h \
-		src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
 		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
@@ -10849,11 +10699,17 @@ filesform.o: src/widget/form/filesform.cpp src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/QTextEdit \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
 		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
 		/usr/include/qt5/QtWidgets/QStyleFactory \
 		/usr/include/qt5/QtWidgets/qstylefactory.h \
 		src/widget/form/settings/identityform.h \
 		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
 		/usr/include/qt5/QtWidgets/QGroupBox \
 		/usr/include/qt5/QtWidgets/qgroupbox.h \
 		/usr/include/qt5/QtCore/QTimer \
@@ -11267,20 +11123,7 @@ widget.o: src/widget/widget.cpp src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -11296,39 +11139,24 @@ widget.o: src/widget/widget.cpp src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtCore/QString \
 		src/corestructs.h \
 		ui_mainwindow.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/QMenuBar \
-		/usr/include/qt5/QtWidgets/qmenubar.h \
-		/usr/include/qt5/QtWidgets/qmenu.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSplitter \
-		/usr/include/qt5/QtWidgets/qsplitter.h \
-		/usr/include/qt5/QtWidgets/QStatusBar \
-		/usr/include/qt5/QtWidgets/qstatusbar.h \
-		src/widget/adjustingscrollarea.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		src/widget/croppinglabel.h \
 		src/core.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtCore/QMutex \
@@ -11350,6 +11178,7 @@ widget.o: src/widget/widget.cpp src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QDialog \
 		src/widget/friendwidget.h \
 		src/widget/genericchatroomwidget.h \
+		/usr/include/qt5/QtWidgets/QFrame \
 		src/grouplist.h \
 		src/group.h \
 		/usr/include/qt5/QtCore/QMap \
@@ -11360,6 +11189,9 @@ widget.o: src/widget/widget.cpp src/widget/widget.h \
 		/usr/include/qt5/QtCore/QDateTime \
 		/usr/include/qt5/QtCore/qdatetime.h \
 		/usr/include/qt5/QtWidgets/QMenu \
+		/usr/include/qt5/QtWidgets/qmenu.h \
+		/usr/include/qt5/QtWidgets/qaction.h \
+		/usr/include/qt5/QtWidgets/qactiongroup.h \
 		src/chatlog/chatmessage.h \
 		src/chatlog/chatline.h \
 		/usr/include/qt5/QtCore/QPointF \
@@ -12469,50 +12301,7 @@ loadhistorydialog.o: src/widget/form/loadhistorydialog.cpp src/widget/form/loadh
 		/usr/include/qt5/QtGui/qtouchdevice.h \
 		/usr/include/qt5/QtCore/QDateTime \
 		/usr/include/qt5/QtCore/qdatetime.h \
-		ui_loadhistorydialog.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QCalendarWidget \
-		/usr/include/qt5/QtWidgets/qcalendarwidget.h \
-		/usr/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qgridlayout.h
+		ui_loadhistorydialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loadhistorydialog.o src/widget/form/loadhistorydialog.cpp
 
 setpassworddialog.o: src/widget/form/setpassworddialog.cpp src/widget/form/setpassworddialog.h \
@@ -12626,60 +12415,10 @@ setpassworddialog.o: src/widget/form/setpassworddialog.cpp src/widget/form/setpa
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
 		ui_setpassworddialog.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QDialogButtonBox \
-		/usr/include/qt5/QtWidgets/qdialogbuttonbox.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QLineEdit \
-		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
-		/usr/include/qt5/QtWidgets/QProgressBar \
-		/usr/include/qt5/QtWidgets/qprogressbar.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o setpassworddialog.o src/widget/form/setpassworddialog.cpp
 
 tabcompleter.o: src/widget/form/tabcompleter.cpp src/widget/form/tabcompleter.h \
@@ -13201,20 +12940,7 @@ autoupdate.o: src/autoupdate.cpp src/autoupdate.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -13230,6 +12956,20 @@ autoupdate.o: src/autoupdate.cpp src/autoupdate.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		src/corestructs.h \
 		src/widget/gui.h \
@@ -14355,52 +14095,7 @@ groupwidget.o: src/widget/groupwidget.cpp src/widget/groupwidget.h \
 		/usr/include/qt5/QtGui/qtextformat.h \
 		/usr/include/qt5/QtGui/qpen.h \
 		/usr/include/qt5/QtGui/qtextoption.h \
-		ui_mainwindow.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QMenuBar \
-		/usr/include/qt5/QtWidgets/qmenubar.h \
-		/usr/include/qt5/QtWidgets/QPushButton \
-		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSplitter \
-		/usr/include/qt5/QtWidgets/qsplitter.h \
-		/usr/include/qt5/QtWidgets/QStatusBar \
-		/usr/include/qt5/QtWidgets/qstatusbar.h \
-		src/widget/adjustingscrollarea.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		src/widget/croppinglabel.h
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o groupwidget.o src/widget/groupwidget.cpp
 
 friendwidget.o: src/widget/friendwidget.cpp src/widget/friendwidget.h \
@@ -14596,15 +14291,7 @@ friendwidget.o: src/widget/friendwidget.cpp src/widget/friendwidget.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -14620,6 +14307,15 @@ friendwidget.o: src/widget/friendwidget.cpp src/widget/friendwidget.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtGui/QContextMenuEvent \
 		/usr/include/qt5/QtGui/QDrag \
@@ -14853,15 +14549,7 @@ chatform.o: src/widget/form/chatform.cpp /usr/include/qt5/QtCore/QDebug \
 		src/widget/form/addfriendform.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -14876,6 +14564,15 @@ chatform.o: src/widget/form/chatform.cpp /usr/include/qt5/QtCore/QDebug \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		src/widget/maskablepixmapwidget.h \
 		src/widget/croppinglabel.h \
@@ -15206,66 +14903,16 @@ genericchatform.o: src/widget/form/genericchatform.cpp src/widget/form/genericch
 		/usr/include/qt5/QtCore/QPointF \
 		/usr/include/qt5/QtCore/QRectF \
 		ui_mainwindow.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QMainWindow \
-		/usr/include/qt5/QtWidgets/qmainwindow.h \
-		/usr/include/qt5/QtWidgets/QMenuBar \
-		/usr/include/qt5/QtWidgets/qmenubar.h \
-		/usr/include/qt5/QtWidgets/QPushButton \
-		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QSplitter \
-		/usr/include/qt5/QtWidgets/qsplitter.h \
-		/usr/include/qt5/QtWidgets/QStatusBar \
-		/usr/include/qt5/QtWidgets/qstatusbar.h \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		src/widget/adjustingscrollarea.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		src/widget/croppinglabel.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QFileDialog \
 		/usr/include/qt5/QtWidgets/qfiledialog.h \
 		/usr/include/qt5/QtCore/qdir.h \
 		/usr/include/qt5/QtCore/qfileinfo.h \
 		/usr/include/qt5/QtWidgets/qdialog.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		/usr/include/qt5/QtCore/QDebug \
 		/usr/include/qt5/QtWidgets/QShortcut \
 		/usr/include/qt5/QtWidgets/qshortcut.h \
@@ -15277,16 +14924,23 @@ genericchatform.o: src/widget/form/genericchatform.cpp src/widget/form/genericch
 		src/widget/emoticonswidget.h \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		src/misc/style.h \
 		/usr/include/qt5/QtGui/QColor \
 		/usr/include/qt5/QtGui/QFont \
 		src/widget/widget.h \
+		/usr/include/qt5/QtWidgets/QMainWindow \
+		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
 		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
 		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
 		/usr/include/qt5/QtWidgets/qmessagebox.h \
 		/usr/include/qt5/QtCore/QFileInfo \
 		src/widget/form/addfriendform.h \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
 		/usr/include/qt5/QtGui/qtextcursor.h \
@@ -15295,7 +14949,27 @@ genericchatform.o: src/widget/form/genericchatform.cpp src/widget/form/genericch
 		/usr/include/qt5/QtGui/qtextoption.h \
 		/usr/include/qt5/QtWidgets/QTextEdit \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
 		src/widget/form/settingswidget.h \
 		/usr/include/qt5/QtWidgets/QStyleFactory \
 		/usr/include/qt5/QtWidgets/qstylefactory.h \
@@ -15308,8 +14982,6 @@ genericchatform.o: src/widget/form/genericchatform.cpp src/widget/form/genericch
 		/usr/include/qt5/QtCore/qbasictimer.h \
 		src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
-		/usr/include/qt5/QtWidgets/qlistwidget.h \
-		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		src/misc/settings.h \
 		/usr/include/qt5/QtGui/QPixmap \
@@ -15335,6 +15007,7 @@ genericchatform.o: src/widget/form/genericchatform.cpp src/widget/form/genericch
 		/usr/include/qt5/QtWidgets/QGraphicsView \
 		/usr/include/qt5/QtWidgets/qgraphicsview.h \
 		/usr/include/qt5/QtGui/qpainter.h \
+		/usr/include/qt5/QtWidgets/qscrollarea.h \
 		/usr/include/qt5/QtWidgets/qgraphicsscene.h \
 		/usr/include/qt5/QtCore/QMargins \
 		src/chatlog/content/timestamp.h \
@@ -17959,54 +17632,6 @@ filetransferwidget.o: src/chatlog/content/filetransferwidget.cpp src/chatlog/con
 		src/corestructs.h \
 		/usr/include/qt5/QtCore/QString \
 		ui_filetransferwidget.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
-		/usr/include/qt5/QtWidgets/QProgressBar \
-		/usr/include/qt5/QtWidgets/qprogressbar.h \
-		/usr/include/qt5/QtWidgets/QPushButton \
-		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		src/widget/croppinglabel.h \
 		src/core.h \
 		/usr/include/qt5/QtCore/QObject \
 		/usr/include/qt5/QtCore/QMutex \
@@ -18026,6 +17651,8 @@ filetransferwidget.o: src/chatlog/content/filetransferwidget.cpp src/chatlog/con
 		src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qmainwindow.h \
+		/usr/include/qt5/QtWidgets/qtabwidget.h \
+		/usr/include/qt5/QtGui/qicon.h \
 		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
 		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
 		/usr/include/qt5/QtWidgets/QMessageBox \
@@ -18035,6 +17662,13 @@ filetransferwidget.o: src/chatlog/content/filetransferwidget.cpp src/chatlog/con
 		/usr/include/qt5/QtCore/qfileinfo.h \
 		src/widget/form/addfriendform.h \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
 		/usr/include/qt5/QtGui/qtextcursor.h \
@@ -18043,8 +17677,29 @@ filetransferwidget.o: src/chatlog/content/filetransferwidget.cpp src/chatlog/con
 		/usr/include/qt5/QtGui/qtextoption.h \
 		/usr/include/qt5/QtWidgets/QTextEdit \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QPushButton \
+		/usr/include/qt5/QtWidgets/qpushbutton.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtWidgets/QListWidget \
+		/usr/include/qt5/QtWidgets/qlistwidget.h \
+		/usr/include/qt5/QtWidgets/qlistview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
+		/usr/include/qt5/QtWidgets/qstyleoption.h \
+		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
+		/usr/include/qt5/QtGui/qvalidator.h \
+		/usr/include/qt5/QtCore/qregularexpression.h \
+		/usr/include/qt5/QtWidgets/qslider.h \
+		/usr/include/qt5/QtWidgets/qabstractslider.h \
+		/usr/include/qt5/QtWidgets/qstyle.h \
+		/usr/include/qt5/QtWidgets/qtabbar.h \
+		/usr/include/qt5/QtWidgets/qrubberband.h \
 		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
 		/usr/include/qt5/QtWidgets/QStyleFactory \
 		/usr/include/qt5/QtWidgets/qstylefactory.h \
 		src/widget/form/settings/identityform.h \
@@ -18056,8 +17711,6 @@ filetransferwidget.o: src/chatlog/content/filetransferwidget.cpp src/chatlog/con
 		/usr/include/qt5/QtCore/qbasictimer.h \
 		src/widget/form/filesform.h \
 		/usr/include/qt5/QtWidgets/QListWidgetItem \
-		/usr/include/qt5/QtWidgets/qlistwidget.h \
-		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtGui/QMouseEvent \
 		/usr/include/qt5/QtWidgets/QFileDialog \
@@ -18070,6 +17723,7 @@ filetransferwidget.o: src/chatlog/content/filetransferwidget.cpp src/chatlog/con
 		/usr/include/qt5/QtGui/qdesktopservices.h \
 		/usr/include/qt5/QtCore/qstandardpaths.h \
 		/usr/include/qt5/QtWidgets/QDesktopWidget \
+		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
 		/usr/include/qt5/QtGui/QPainter \
 		/usr/include/qt5/QtGui/qpainter.h \
 		/usr/include/qt5/QtCore/QVariantAnimation \
@@ -18449,9 +18103,11 @@ customtextdocument.o: src/chatlog/customtextdocument.cpp src/chatlog/customtextd
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customtextdocument.o src/chatlog/customtextdocument.cpp
 
 advancedform.o: src/widget/form/settings/advancedform.cpp ui_advancedsettings.h \
-		/usr/include/qt5/QtCore/QVariant \
-		/usr/include/qt5/QtCore/qvariant.h \
-		/usr/include/qt5/QtCore/qatomic.h \
+		src/widget/form/settings/advancedform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/qwidget.h \
+		/usr/include/qt5/QtGui/qwindowdefs.h \
 		/usr/include/qt5/QtCore/qglobal.h \
 		/usr/include/qt5/QtCore/qconfig.h \
 		/usr/include/qt5/QtCore/qfeatures.h \
@@ -18459,12 +18115,7 @@ advancedform.o: src/widget/form/settings/advancedform.cpp ui_advancedsettings.h 
 		/usr/include/qt5/QtCore/qprocessordetection.h \
 		/usr/include/qt5/QtCore/qcompilerdetection.h \
 		/usr/include/qt5/QtCore/qglobalstatic.h \
-		/usr/include/qt5/QtCore/qmutex.h \
-		/usr/include/qt5/QtCore/qlogging.h \
-		/usr/include/qt5/QtCore/qflags.h \
-		/usr/include/qt5/QtCore/qtypeinfo.h \
-		/usr/include/qt5/QtCore/qtypetraits.h \
-		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qatomic.h \
 		/usr/include/qt5/QtCore/qbasicatomic.h \
 		/usr/include/qt5/QtCore/qatomic_bootstrap.h \
 		/usr/include/qt5/QtCore/qgenericatomic.h \
@@ -18487,56 +18138,49 @@ advancedform.o: src/widget/form/settings/advancedform.cpp ui_advancedsettings.h 
 		/usr/include/qt5/QtCore/qatomic_x86.h \
 		/usr/include/qt5/QtCore/qatomic_cxx11.h \
 		/usr/include/qt5/QtCore/qatomic_unix.h \
-		/usr/include/qt5/QtCore/qbytearray.h \
-		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qmutex.h \
+		/usr/include/qt5/QtCore/qlogging.h \
+		/usr/include/qt5/QtCore/qflags.h \
+		/usr/include/qt5/QtCore/qtypeinfo.h \
+		/usr/include/qt5/QtCore/qtypetraits.h \
+		/usr/include/qt5/QtCore/qsysinfo.h \
+		/usr/include/qt5/QtCore/qobjectdefs.h \
 		/usr/include/qt5/QtCore/qnamespace.h \
-		/usr/include/qt5/QtCore/qarraydata.h \
+		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
+		/usr/include/qt5/QtGui/qwindowdefs_win.h \
+		/usr/include/qt5/QtCore/qobject.h \
 		/usr/include/qt5/QtCore/qstring.h \
 		/usr/include/qt5/QtCore/qchar.h \
+		/usr/include/qt5/QtCore/qbytearray.h \
+		/usr/include/qt5/QtCore/qrefcount.h \
+		/usr/include/qt5/QtCore/qarraydata.h \
 		/usr/include/qt5/QtCore/qstringbuilder.h \
 		/usr/include/qt5/QtCore/qlist.h \
 		/usr/include/qt5/QtCore/qalgorithms.h \
 		/usr/include/qt5/QtCore/qiterator.h \
+		/usr/include/qt5/QtCore/qcoreevent.h \
+		/usr/include/qt5/QtCore/qscopedpointer.h \
 		/usr/include/qt5/QtCore/qmetatype.h \
 		/usr/include/qt5/QtCore/qvarlengtharray.h \
 		/usr/include/qt5/QtCore/qcontainerfwd.h \
 		/usr/include/qt5/QtCore/qisenum.h \
-		/usr/include/qt5/QtCore/qobjectdefs.h \
-		/usr/include/qt5/QtCore/qobjectdefs_impl.h \
-		/usr/include/qt5/QtCore/qmap.h \
-		/usr/include/qt5/QtCore/qpair.h \
-		/usr/include/qt5/QtCore/qdebug.h \
-		/usr/include/qt5/QtCore/qhash.h \
-		/usr/include/qt5/QtCore/qtextstream.h \
-		/usr/include/qt5/QtCore/qiodevice.h \
-		/usr/include/qt5/QtCore/qobject.h \
-		/usr/include/qt5/QtCore/qcoreevent.h \
-		/usr/include/qt5/QtCore/qscopedpointer.h \
 		/usr/include/qt5/QtCore/qobject_impl.h \
-		/usr/include/qt5/QtCore/qlocale.h \
-		/usr/include/qt5/QtCore/qshareddata.h \
-		/usr/include/qt5/QtCore/qvector.h \
-		/usr/include/qt5/QtCore/qpoint.h \
-		/usr/include/qt5/QtCore/qset.h \
-		/usr/include/qt5/QtCore/qcontiguouscache.h \
-		/usr/include/qt5/QtCore/qstringlist.h \
-		/usr/include/qt5/QtCore/qdatastream.h \
-		/usr/include/qt5/QtCore/qregexp.h \
-		/usr/include/qt5/QtCore/qstringmatcher.h \
-		/usr/include/qt5/QtWidgets/QAction \
-		/usr/include/qt5/QtWidgets/qaction.h \
-		/usr/include/qt5/QtGui/qkeysequence.h \
-		/usr/include/qt5/QtWidgets/qwidget.h \
-		/usr/include/qt5/QtGui/qwindowdefs.h \
-		/usr/include/qt5/QtGui/qwindowdefs_win.h \
 		/usr/include/qt5/QtCore/qmargins.h \
 		/usr/include/qt5/QtCore/qrect.h \
 		/usr/include/qt5/QtCore/qsize.h \
+		/usr/include/qt5/QtCore/qpoint.h \
 		/usr/include/qt5/QtGui/qpaintdevice.h \
 		/usr/include/qt5/QtGui/qpalette.h \
 		/usr/include/qt5/QtGui/qcolor.h \
 		/usr/include/qt5/QtGui/qrgb.h \
+		/usr/include/qt5/QtCore/qstringlist.h \
+		/usr/include/qt5/QtCore/qdatastream.h \
+		/usr/include/qt5/QtCore/qiodevice.h \
+		/usr/include/qt5/QtCore/qpair.h \
+		/usr/include/qt5/QtCore/qregexp.h \
+		/usr/include/qt5/QtCore/qstringmatcher.h \
 		/usr/include/qt5/QtGui/qbrush.h \
+		/usr/include/qt5/QtCore/qvector.h \
 		/usr/include/qt5/QtGui/qmatrix.h \
 		/usr/include/qt5/QtGui/qpolygon.h \
 		/usr/include/qt5/QtGui/qregion.h \
@@ -18546,72 +18190,39 @@ advancedform.o: src/widget/form/settings/advancedform.cpp ui_advancedsettings.h 
 		/usr/include/qt5/QtGui/qimage.h \
 		/usr/include/qt5/QtGui/qpixmap.h \
 		/usr/include/qt5/QtCore/qsharedpointer.h \
+		/usr/include/qt5/QtCore/qshareddata.h \
 		/usr/include/qt5/QtCore/qsharedpointer_impl.h \
+		/usr/include/qt5/QtCore/qhash.h \
 		/usr/include/qt5/QtGui/qfont.h \
 		/usr/include/qt5/QtGui/qfontmetrics.h \
 		/usr/include/qt5/QtGui/qfontinfo.h \
 		/usr/include/qt5/QtWidgets/qsizepolicy.h \
 		/usr/include/qt5/QtGui/qcursor.h \
+		/usr/include/qt5/QtGui/qkeysequence.h \
 		/usr/include/qt5/QtGui/qevent.h \
+		/usr/include/qt5/QtCore/qvariant.h \
+		/usr/include/qt5/QtCore/qmap.h \
+		/usr/include/qt5/QtCore/qdebug.h \
+		/usr/include/qt5/QtCore/qtextstream.h \
+		/usr/include/qt5/QtCore/qlocale.h \
+		/usr/include/qt5/QtCore/qset.h \
+		/usr/include/qt5/QtCore/qcontiguouscache.h \
 		/usr/include/qt5/QtCore/qurl.h \
 		/usr/include/qt5/QtCore/qurlquery.h \
 		/usr/include/qt5/QtCore/qfile.h \
 		/usr/include/qt5/QtCore/qfiledevice.h \
 		/usr/include/qt5/QtGui/qvector2d.h \
 		/usr/include/qt5/QtGui/qtouchdevice.h \
-		/usr/include/qt5/QtGui/qicon.h \
-		/usr/include/qt5/QtWidgets/qactiongroup.h \
-		/usr/include/qt5/QtWidgets/QApplication \
-		/usr/include/qt5/QtWidgets/qapplication.h \
-		/usr/include/qt5/QtCore/qcoreapplication.h \
-		/usr/include/qt5/QtCore/qeventloop.h \
-		/usr/include/qt5/QtWidgets/qdesktopwidget.h \
-		/usr/include/qt5/QtGui/qguiapplication.h \
-		/usr/include/qt5/QtGui/qinputmethod.h \
-		/usr/include/qt5/QtWidgets/QButtonGroup \
-		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QCheckBox \
-		/usr/include/qt5/QtWidgets/qcheckbox.h \
-		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		/usr/include/qt5/QtWidgets/QComboBox \
-		/usr/include/qt5/QtWidgets/qcombobox.h \
-		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
-		/usr/include/qt5/QtWidgets/qstyleoption.h \
-		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
-		/usr/include/qt5/QtGui/qvalidator.h \
-		/usr/include/qt5/QtCore/qregularexpression.h \
-		/usr/include/qt5/QtWidgets/qslider.h \
-		/usr/include/qt5/QtWidgets/qabstractslider.h \
-		/usr/include/qt5/QtWidgets/qstyle.h \
-		/usr/include/qt5/QtWidgets/qtabbar.h \
-		/usr/include/qt5/QtWidgets/qtabwidget.h \
-		/usr/include/qt5/QtWidgets/qrubberband.h \
-		/usr/include/qt5/QtWidgets/qframe.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		src/widget/form/settingswidget.h \
 		/usr/include/qt5/QtWidgets/QHBoxLayout \
 		/usr/include/qt5/QtWidgets/qboxlayout.h \
 		/usr/include/qt5/QtWidgets/qlayout.h \
 		/usr/include/qt5/QtWidgets/qlayoutitem.h \
 		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
-		/usr/include/qt5/QtWidgets/QLabel \
-		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
-		/usr/include/qt5/QtWidgets/QScrollArea \
-		/usr/include/qt5/QtWidgets/qscrollarea.h \
-		/usr/include/qt5/QtWidgets/QSpacerItem \
-		/usr/include/qt5/QtWidgets/QVBoxLayout \
-		/usr/include/qt5/QtWidgets/QWidget \
-		src/widget/form/settings/advancedform.h \
-		src/widget/form/settings/genericsettings.h \
-		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/qabstractbutton.h \
+		/usr/include/qt5/QtGui/qicon.h \
 		/usr/include/qt5/QtWidgets/QStyleFactory \
 		/usr/include/qt5/QtWidgets/qstylefactory.h \
 		src/historykeeper.h \
@@ -20158,20 +19769,7 @@ main.o: src/main.cpp src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QWidget \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -20187,6 +19785,20 @@ main.o: src/main.cpp src/widget/widget.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QWidget \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtCore/QString \
 		src/corestructs.h \
@@ -20408,19 +20020,7 @@ nexus.o: src/nexus.cpp src/nexus.h \
 		/usr/include/qt5/QtWidgets/QPushButton \
 		/usr/include/qt5/QtWidgets/qpushbutton.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -20436,6 +20036,19 @@ nexus.o: src/nexus.cpp src/nexus.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o nexus.o src/nexus.cpp
 
@@ -21417,19 +21030,7 @@ gui.o: src/widget/gui.cpp src/widget/gui.h \
 		/usr/include/qt5/QtWidgets/qtextedit.h \
 		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtGui/qtextdocument.h \
-		src/widget/form/settingswidget.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QStyleFactory \
-		/usr/include/qt5/QtWidgets/qstylefactory.h \
-		src/widget/form/settings/identityform.h \
-		src/widget/form/settings/genericsettings.h \
-		/usr/include/qt5/QtWidgets/QGroupBox \
-		/usr/include/qt5/QtWidgets/qgroupbox.h \
-		/usr/include/qt5/QtCore/QTimer \
-		/usr/include/qt5/QtCore/qtimer.h \
-		/usr/include/qt5/QtCore/qbasictimer.h \
-		src/widget/form/filesform.h \
-		/usr/include/qt5/QtWidgets/QListWidgetItem \
+		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
@@ -21445,6 +21046,19 @@ gui.o: src/widget/gui.cpp src/widget/gui.h \
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		src/widget/form/settingswidget.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QStyleFactory \
+		/usr/include/qt5/QtWidgets/qstylefactory.h \
+		src/widget/form/settings/identityform.h \
+		src/widget/form/settings/genericsettings.h \
+		/usr/include/qt5/QtWidgets/QGroupBox \
+		/usr/include/qt5/QtWidgets/qgroupbox.h \
+		/usr/include/qt5/QtCore/QTimer \
+		/usr/include/qt5/QtCore/qtimer.h \
+		/usr/include/qt5/QtCore/qbasictimer.h \
+		src/widget/form/filesform.h \
+		/usr/include/qt5/QtWidgets/QListWidgetItem \
 		/usr/include/qt5/QtWidgets/QTabWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui.o src/widget/gui.cpp
 

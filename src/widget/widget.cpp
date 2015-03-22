@@ -1229,16 +1229,7 @@ void Widget::previousContact()
 
 void Widget::on_wallButton_clicked()
 {
-    // If already showing the Wall UI then return.
-
-    // start and setup the UI
     hideMainForms();
     wallForm->show(*ui);
     setWindowTitle(tr("Wall"));
-
-    // Show the current wall .. make a new function for refreshing posts
-
-
-    //
-
 }
