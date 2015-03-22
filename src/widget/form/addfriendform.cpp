@@ -176,23 +176,33 @@ void WallForm::show(Ui::MainWindow &ui)
     main->show();
     head->show();
 
-    printf("SHOW GOT CALLED\n");
+  //  printf("SHOW GOT CALLED\n");
 }
 
 void WallForm::postReceivedMessages(const QString &message)
 {
+    int num_friends = (FriendList::getAllFriends()).size();
+    if(num_friends < 3)
+        return;
+
+    if(checkHashedMessages(message) == true)
+        return;
+
     QListWidgetItem item;
     QColor offline(0,0,255);
     item.setText(message);
     item.setTextColor(offline);
     wall->addItem(&item);
 
-    cout << message.toUtf8().constData() << endl;
+   // cout << message.toUtf8().constData() << endl;
 }
 
 void WallForm::onPostTriggered()
 {
     QString msg = getMessage();
+
+    if(checkHashedMessages((const QString&)msg) == true)
+        return;
 
     // Post the message on the wall, UI stuff
     QListWidgetItem item;
@@ -207,9 +217,22 @@ void WallForm::onPostTriggered()
 
 }
 
-
 QString WallForm::getMessage() const
 {
     const QString msg = message.toPlainText();
     return !msg.isEmpty() ? msg : message.placeholderText();
+}
+
+bool WallForm::checkHashedMessages(const QString &message)
+{
+    if(hashMessage.size() > 1000)
+        hashMessage.clear();
+
+    if(hashMessage.contains(message))
+        return true;
+    else {
+        hashMessage.insert(message, 1);
+        return false;
+    }
+
 }

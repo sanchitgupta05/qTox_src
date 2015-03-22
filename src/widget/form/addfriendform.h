@@ -23,6 +23,7 @@
 #include <QTextEdit>
 #include <QPushButton>
 #include <QListWidget>
+#include <QHash>
 
 namespace Ui {class MainWindow;}
 
@@ -67,6 +68,7 @@ public:
     ~WallForm();
 
     QString getMessage() const;
+    bool checkHashedMessages(const QString &message);
 
 signals:
     //void friendRequested(const QString& friendAddress, const QString& message);
@@ -89,6 +91,8 @@ private:
     QTextEdit message;
     QVBoxLayout layout, headLayout;
     QWidget *head, *main;
+
+    QHash<QString, int> hashMessage;
 };
 
 #endif // ADDFRIENDFORM_H
