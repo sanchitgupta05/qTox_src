@@ -175,7 +175,7 @@ void FriendWidget::updateStatusLight()
 void FriendWidget::setChatForm(Ui::MainWindow &ui)
 {
     Friend* f = FriendList::findFriend(friendId);
-    f->getChatForm()->show(ui);
+    //f->getChatForm()->show(ui);       // XXX uncomment this to see chat forms
 }
 
 void FriendWidget::resetEventFlags()
