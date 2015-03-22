@@ -186,18 +186,20 @@ void WallForm::show(Ui::MainWindow &ui)
 void WallForm::postReceivedMessages(const QString &message)
 {
     int num_friends = (FriendList::getAllFriends()).size();
-    if(num_friends < 3)
+    if(num_friends < 2)
         return;
 
     if(checkHashedMessages(message) == true)
         return;
 
     QListWidgetItem* item = new QListWidgetItem;
-    QColor online(0,255,0);
+    QColor Blue(0,191,255);
+    QColor white(255,255,255);
     item->setText(message);
-    item->setTextColor(online);
+    item->setTextColor(white);
+    item->setBackground(Blue);
     listItems.append(item);
-    wall->insertItem(wall->count()+1,item);
+    wall->insertItem(0,item);
 
 }
 
@@ -210,11 +212,13 @@ void WallForm::onPostTriggered()
 
     // Post the message on the wall, UI stuff
     QListWidgetItem* item = new QListWidgetItem;
-    QColor offline(0,0,255);
+    QColor white(255,255,255);
+    QColor black(0,0,0);
     item->setText(msg);
-    item->setTextColor(offline);
+    item->setTextColor(white);
+    item->setBackground(black);
     listItems.append(item);
-    wall->insertItem(wall->count()+1,item);
+    wall->insertItem(0,item);
 
     for(auto f : FriendList::getAllFriends()) {
         Core::getInstance()->sendMessage(f->getFriendID(), msg);
