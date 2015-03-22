@@ -33,7 +33,7 @@ private:
     Core* core;
     QThread* coreThread;
     Widget* widget;
-    WallForm * wallForm;
+    //WallForm * wallForm;
     AndroidGUI* androidgui;
     bool started;
 };

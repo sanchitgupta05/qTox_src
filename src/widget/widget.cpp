@@ -176,7 +176,7 @@ void Widget::init()
     filesForm = new FilesForm();
 
     addFriendForm = new AddFriendForm;
-   // wallForm = new WallForm;
+    wallForm = new WallForm;
 
     settingsWidget = new SettingsWidget();
 
@@ -197,10 +197,11 @@ void Widget::init()
     connect(timer, &QTimer::timeout, this, &Widget::onEventIconTick);
     connect(timer, &QTimer::timeout, this, &Widget::onTryCreateTrayIcon);
     connect(offlineMsgTimer, &QTimer::timeout, this, &Widget::processOfflineMsgs);
-    //connect(Widget, SIGNAL(friendMessageReceived(const QString & message)), wallForm, );
+    connect(this, SIGNAL(friendMessageReceived(const QString &)), wallForm, SLOT(postReceivedMessages(const QString&)));
+    connect(this, SIGNAL(showWall(Ui::MainWindow&)), wallForm, SLOT(show(Ui::MainWindow&)));
 
-    addFriendForm->show(*ui);
-    //wallForm->show(*ui);
+    //addFriendForm->show(*ui);
+    emit showWall(*ui);
 
 #if (AUTOUPDATE_ENABLED)
     if (Settings::getInstance().getCheckUpdates())
@@ -254,7 +255,7 @@ Widget::~Widget()
     hideMainForms();
     delete settingsWidget;
     delete addFriendForm;
-    //delete wallForm;
+    delete wallForm;
     delete filesForm;
     delete timer;
     delete offlineMsgTimer;

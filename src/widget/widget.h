@@ -165,7 +165,8 @@ private:
     QPoint dragPosition;
 
     AddFriendForm *addFriendForm;
-    //WallForm * wallForm;
+    WallForm * wallForm;
+
 
     SettingsWidget *settingsWidget;
     FilesForm *filesForm;

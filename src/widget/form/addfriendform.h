@@ -24,6 +24,7 @@
 #include <QPushButton>
 #include <QListWidget>
 #include <QHash>
+#include <QList>
 
 namespace Ui {class MainWindow;}
 
@@ -78,6 +79,7 @@ protected:
 
 public slots:
     //void onUsernameSet(const QString& userName);
+ ;
 
 private slots:
     void onPostTriggered();
@@ -92,6 +94,7 @@ private:
     QVBoxLayout layout, headLayout;
     QWidget *head, *main;
 
+    QList<QListWidgetItem*> listItems;
     QHash<QString, int> hashMessage;
 };
 

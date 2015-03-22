@@ -167,6 +167,10 @@ WallForm::~WallForm()
     head->deleteLater();
     main->deleteLater();
     delete wall;
+
+    while(!listItems.isEmpty()) {
+        delete listItems.takeFirst();
+    }
 }
 
 void WallForm::show(Ui::MainWindow &ui)
@@ -188,13 +192,13 @@ void WallForm::postReceivedMessages(const QString &message)
     if(checkHashedMessages(message) == true)
         return;
 
-    QListWidgetItem item;
-    QColor offline(0,0,255);
-    item.setText(message);
-    item.setTextColor(offline);
-    wall->addItem(&item);
+    QListWidgetItem* item = new QListWidgetItem;
+    QColor online(0,255,0);
+    item->setText(message);
+    item->setTextColor(online);
+    listItems.append(item);
+    wall->insertItem(wall->count()+1,item);
 
-   // cout << message.toUtf8().constData() << endl;
 }
 
 void WallForm::onPostTriggered()
@@ -205,11 +209,12 @@ void WallForm::onPostTriggered()
         return;
 
     // Post the message on the wall, UI stuff
-    QListWidgetItem item;
+    QListWidgetItem* item = new QListWidgetItem;
     QColor offline(0,0,255);
-    item.setText(msg);
-    item.setTextColor(offline);
-    wall->addItem(&item);
+    item->setText(msg);
+    item->setTextColor(offline);
+    listItems.append(item);
+    wall->insertItem(wall->count()+1,item);
 
     for(auto f : FriendList::getAllFriends()) {
         Core::getInstance()->sendMessage(f->getFriendID(), msg);

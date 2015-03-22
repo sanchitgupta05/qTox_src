@@ -33,7 +33,7 @@ Nexus::~Nexus()
     delete androidgui;
 #else
     delete widget;
-    delete wallForm;
+   // delete wallForm;
 #endif
 }
 
@@ -75,7 +75,7 @@ void Nexus::start()
     androidgui->show();
 #else
     widget->init();
-    wallForm = new WallForm;
+    //wallForm = new WallForm;
 #endif
     GUI::getInstance();
 
@@ -127,8 +127,9 @@ void Nexus::start()
     connect(widget, &Widget::friendRequested, core, &Core::requestFriendship);
     connect(widget, &Widget::friendRequestAccepted, core, &Core::acceptFriendRequest);
     connect(widget, &Widget::changeProfile, core, &Core::switchConfiguration);
-    connect(widget, SIGNAL(friendMessageReceived(const QString&)), wallForm, SLOT(postReceivedMessages(const QString&)));
-    connect(widget, SIGNAL(showWall(Ui::MainWindow&)), wallForm, SLOT(show(Ui::MainWindow&)));
+
+    //connect(widget, SIGNAL(friendMessageReceived(const QString&)), wallForm, SLOT(postReceivedMessages(const QString&)));
+    //connect(widget, SIGNAL(showWall(Ui::MainWindow&)), wallForm, SLOT(show(Ui::MainWindow&)));
 
 #endif
 
